@@ -1,4 +1,4 @@
-package com.example.controledepresenca.controller;
+package com.example.controledepresenca.service;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import com.example.controledepresenca.repository.ControleDePresencaRepository;
 
 
 @RestController
-public class DespesaController {
+public class DespesaService {
 	
 	@Autowired
 	private ControleDePresencaRepository repository;

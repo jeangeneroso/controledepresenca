@@ -1,23 +1,35 @@
 package com.example.controledepresenca.model;
 
+import jakarta.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "colaboradores") // nome da tabela no banco
 public class Colaborador {
-	
-	private Integer id;
-	private String nomeColaborador;
-	private String chavePix;
-	private Date dataPresenca;
-	private Double valorDiaria = 130.00;
-	private Double somaTotalDiaria;
-	private Double valorHoraExtra = 12.00;
-	private Double somaTotalHoraExtra;
-	private char rodizio;
-	
-	public Colaborador () {
-		
-		
-	}
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto incremento
+    private Integer id;
+
+    @Column(nullable = false)
+    private String nomeColaborador;
+
+    private String chavePix;
+
+    @Temporal(TemporalType.DATE)
+    private Date dataPresenca;
+
+    private Double valorDiaria = 130.00;
+    private Double somaTotalDiaria;
+
+    private Double valorHoraExtra = 12.00;
+    private Double somaTotalHoraExtra;
+
+    private char rodizio;
+
+    public Colaborador() {
+    	
+    }
 
 	public Integer getId() {
 		return id;
@@ -90,5 +102,7 @@ public class Colaborador {
 	public void setRodizio(char rodizio) {
 		this.rodizio = rodizio;
 	}
+    
+   
 
 }
