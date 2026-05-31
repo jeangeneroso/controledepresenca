@@ -14,8 +14,8 @@ public class SwaggerConfig {
 	public OpenAPI customOpenAPI() {
 		return new OpenAPI()
 				.info(new Info().
-						title("API Control de Presenca").
-						description(" Controle de Presenca dos Colaboradores").
+						title(" Controle de Presenca ").
+						description(" Controle de Presenca dos Colaboradores RPM e GN ").
 						version("1.0"));
 		
 		/*OpenAPI openAPI = new OpenAPI()

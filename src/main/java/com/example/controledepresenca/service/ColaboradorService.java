@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.controledepresenca.model.Colaborador;
+import com.example.controledepresenca.repository.ColaboradorRepository;
 
 @Service
 public class ColaboradorService {
@@ -20,8 +21,18 @@ public class ColaboradorService {
         if (colaborador.getNomeColaborador() == null || colaborador.getNomeColaborador().isBlank()) {
             throw new IllegalArgumentException("Nome do colaborador é obrigatório");
         }
-        return repository.save(colaborador);
+        return repository.save(colaborador);     
     }
+    
+    public List<Colaborador> listarTodos() {
+        return repository.findAll();
+    }
+
+    public Colaborador listarPorId(Integer id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Colaborador não encontrado"));
+    }
+
 
     public Colaborador incluirPresenca(Integer id, Date dataPresenca) {
         Colaborador colaborador = repository.findById(id)
@@ -55,59 +66,3 @@ public class ColaboradorService {
 }
 
 
-/*@Service
-public class ColaboradorService {
-
-    private final ColaboradorRepository repository;
-
-    public ColaboradorService(ColaboradorRepository repository) {
-        this.repository = repository;
-    }
-
-    // Listar todos
-    public List<Colaborador> listarTodos() {
-        return repository.findAll();
-    }
-
-    // Listar apenas um
-    public Colaborador listarPorId(Integer id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Colaborador não encontrado"));
-    }
-
-    // Inclusão de um
-    public Colaborador salvar(Colaborador colaborador) {
-        if (colaborador.getNomeColaborador() == null || colaborador.getNomeColaborador().isBlank()) {
-            throw new IllegalArgumentException("Nome do colaborador é obrigatório");
-        }
-        return repository.save(colaborador);
-    }
-
-    // Inclusão de todos (lista)
-    public List<Colaborador> salvarTodos(List<Colaborador> colaboradores) {
-        return repository.saveAll(colaboradores);
-    }
-
-    // Alteração de um
-    public Colaborador atualizar(Integer id, Colaborador dadosAtualizados) {
-        Colaborador colaborador = listarPorId(id);
-        colaborador.setNomeColaborador(dadosAtualizados.getNomeColaborador());
-        colaborador.setChavePix(dadosAtualizados.getChavePix());
-        colaborador.setRodizio(dadosAtualizados.getRodizio());
-        colaborador.setDataPresenca(dadosAtualizados.getDataPresenca());
-        return repository.save(colaborador);
-    }
-
-    // Alteração de todos
-    public List<Colaborador> atualizarTodos(List<Colaborador> colaboradores) {
-        return repository.saveAll(colaboradores);
-    }
-
-    // Exclusão de um
-    public void excluir(Integer id) {
-        Colaborador colaborador = listarPorId(id);
-        repository.delete(colaborador);
-    }
-}
-
-*/

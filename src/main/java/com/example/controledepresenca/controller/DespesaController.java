@@ -1,25 +1,53 @@
-package com.example.controledepresenca.controller;
+/*@RestController
+@RequestMapping("/colaboradores")
+public class ColaboradorController {
 
-import java.util.List;
+    private final ColaboradorService colaboradorService;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+    public ColaboradorController(ColaboradorService colaboradorService) {
+        this.colaboradorService = colaboradorService;
+    }
 
-import com.example.controledepresenca.model.Despesa;
-import com.example.controledepresenca.repository.ControleDePresencaRepository;
+    // Listar todos
+    @GetMapping
+    public List<Colaborador> getTodos() {
+        return colaboradorService.listarTodos();
+    }
 
+    // Listar apenas um
+    @GetMapping("/{id}")
+    public Colaborador getPorId(@PathVariable Integer id) {
+        return colaboradorService.listarPorId(id);
+    }
 
-@RestController
-public class DespesaController {
-	
-	@Autowired
-	private ControleDePresencaRepository repository;
-	
-	@GetMapping("/despesas")
-	public List<Despesa> getDespesas(){
-		return repository.findAll();
-		
-	}
+    // Inclusão de um
+    @PostMapping
+    public Colaborador criar(@RequestBody Colaborador colaborador) {
+        return colaboradorService.salvar(colaborador);
+    }
 
+    // Inclusão de todos
+    @PostMapping("/lista")
+    public List<Colaborador> criarLista(@RequestBody List<Colaborador> colaboradores) {
+        return colaboradorService.salvarTodos(colaboradores);
+    }
+
+    // Alteração de um
+    @PutMapping("/{id}")
+    public Colaborador atualizar(@PathVariable Integer id, @RequestBody Colaborador colaborador) {
+        return colaboradorService.atualizar(id, colaborador);
+    }
+
+    // Alteração de todos
+    @PutMapping("/lista")
+    public List<Colaborador> atualizarLista(@RequestBody List<Colaborador> colaboradores) {
+        return colaboradorService.atualizarTodos(colaboradores);
+    }
+
+    // Exclusão de um
+    @DeleteMapping("/{id}")
+    public void excluir(@PathVariable Integer id) {
+        colaboradorService.excluir(id);
+    }
 }
+*/
