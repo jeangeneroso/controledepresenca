@@ -12,8 +12,8 @@ import com.example.controledepresenca.repository.ControleDePresencaRepository;
 @RestController
 public class DespesaService {
 	
-	@Autowired
-	private ControleDePresencaRepository repository;
+	/*@Autowired
+	private ControleDePresencaRepository repository;*/
 	
 /*	@GetMapping("/despesas")
 	public List<Despesa> getDespesas(){

@@ -30,25 +30,11 @@ public class ColaboradorService {
 
     public Colaborador listarPorId(Integer id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Colaborador não encontrado"));
+                .orElseThrow(() -> new RuntimeException(" Colaborador não cadastrado "));
     }
-
-
-    public Colaborador incluirPresenca(Integer id, Date dataPresenca) {
-        Colaborador colaborador = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Colaborador não encontrado"));
-
-        if (colaborador.getRodizio() == 'S') {
-            throw new IllegalStateException("Colaborador está de rodízio e não pode registrar presença");
-        }
-
-        colaborador.setDataPresenca(dataPresenca);
-        return repository.save(colaborador);
-    }
-
     public Colaborador atualizar(Integer id, Colaborador dadosAtualizados) {
         Colaborador colaborador = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Colaborador não encontrado"));
+                .orElseThrow(() -> new RuntimeException(" Colaborador não cadastrado "));
 
         colaborador.setNomeColaborador(dadosAtualizados.getNomeColaborador());
         colaborador.setChavePix(dadosAtualizados.getChavePix());
@@ -60,7 +46,7 @@ public class ColaboradorService {
 
     public void excluir(Integer id) {
         Colaborador colaborador = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Colaborador não encontrado"));
+                .orElseThrow(() -> new RuntimeException(" Colaborador não cadastrado "));
         repository.delete(colaborador);
     }
 }

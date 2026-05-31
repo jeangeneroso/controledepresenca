@@ -118,5 +118,5 @@ public class Colaborador {
 	public void setPresencas(List<Presenca> presencas) {
 		this.presencas = presencas;
 	}
-
+	
 }

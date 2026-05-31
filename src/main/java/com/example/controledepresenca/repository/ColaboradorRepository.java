@@ -12,5 +12,7 @@ public interface ColaboradorRepository {
 
 	Object findById(Integer id);
 
+	void delete(Colaborador colaborador);
+
 
 }
