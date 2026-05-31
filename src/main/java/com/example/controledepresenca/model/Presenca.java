@@ -15,26 +15,74 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "presenca")
 public class Presenca {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private LocalDate dia;
-	
+
 	@ManyToOne
-    @JoinColumn(name = "operacao_id")
+	@JoinColumn(name = "operacao_id")
 	private Operacao operacao;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "lider_id")
 	private Lider lider;
-	
+
 	@ManyToOne
-    @JoinColumn(name = "colaborador_id")	
+	@JoinColumn(name = "colaborador_id")
 	private Colaborador colaborador;
-	
+
 	@Enumerated(EnumType.STRING)
 	private StatusPresenca status; // status da presença
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public LocalDate getDia() {
+		return dia;
+	}
+
+	public void setDia(LocalDate dia) {
+		this.dia = dia;
+	}
+
+	public Operacao getOperacao() {
+		return operacao;
+	}
+
+	public void setOperacao(Operacao operacao) {
+		this.operacao = operacao;
+	}
+
+	public Lider getLider() {
+		return lider;
+	}
+
+	public void setLider(Lider lider) {
+		this.lider = lider;
+	}
+
+	public Colaborador getColaborador() {
+		return colaborador;
+	}
+
+	public void setColaborador(Colaborador colaborador) {
+		this.colaborador = colaborador;
+	}
+
+	public StatusPresenca getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusPresenca status) {
+		this.status = status;
+	}
 
 }

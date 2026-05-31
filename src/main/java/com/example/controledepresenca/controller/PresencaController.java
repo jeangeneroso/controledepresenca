@@ -2,6 +2,7 @@ package com.example.controledepresenca.controller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.controledepresenca.dto.PresencaDTO;
 import com.example.controledepresenca.model.Colaborador;
 import com.example.controledepresenca.model.Presenca;
 import com.example.controledepresenca.service.ColaboradorService;
@@ -29,19 +31,34 @@ public class PresencaController {
 		this.presencaService = presencaService;
 	}
 
-	 @GetMapping
+	/* @GetMapping
 	    public List<Presenca> getTodos() {
 	        return presencaService.listarTodos();
-	    }
-	
-    @PostMapping("/{id}/presenca")
-    public Presenca incluirPresencaColabodor(@PathVariable Integer id, @RequestBody Date dataPresenca) {
-        return presencaService.incluirPresencaColaborador(id, dataPresenca);
+	    }*/
+	  
+	// Listar todas as presenças
+    @GetMapping
+    public List<PresencaDTO> getTodos() {
+        return presencaService.listarTodos()
+                .stream()
+                .map(PresencaDTO::new) // transforma entidade em DTO
+                .collect(Collectors.toList());
     }
-    
-    @PostMapping("/{id}/presenca")
-    public Presenca incluirPresencaLider(@PathVariable Integer id, @RequestBody Date dataPresenca) {
-        return presencaService.incluirPresencaLider(id, dataPresenca);
+
+    // Registrar presença de colaborador
+    @PostMapping("/{colaboradorId}")
+    public Presenca incluirPresencaColaborador(
+            @PathVariable Integer colaboradorId,
+            @RequestBody Presenca presenca) {
+        return presencaService.incluirPresencaColaborador(colaboradorId, presenca);
+    }
+
+    // Registrar presença de líder
+    @PostMapping("/lider/{liderId}")
+    public Presenca incluirPresencaLider(
+            @PathVariable Integer liderId,
+            @RequestBody Presenca presenca) {
+        return presencaService.incluirPresencaLider(liderId, presenca);
     }
 
 
