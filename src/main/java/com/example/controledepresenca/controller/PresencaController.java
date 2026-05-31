@@ -44,6 +44,24 @@ public class PresencaController {
                 .map(PresencaDTO::new) // transforma entidade em DTO
                 .collect(Collectors.toList());
     }
+    
+ // Listar presenças de um colaborador específico
+    @GetMapping("/colaborador/{colaboradorId}")
+    public List<PresencaDTO> getPresencasPorColaborador(@PathVariable Integer colaboradorId) {
+        return presencaService.listarPorColaborador(colaboradorId)
+                .stream()
+                .map(PresencaDTO::new)
+                .collect(Collectors.toList());
+    }
+
+    // Listar presenças de um líder específico
+    @GetMapping("/lider/{liderId}")
+    public List<PresencaDTO> getPresencasPorLider(@PathVariable Integer liderId) {
+        return presencaService.listarPorLider(liderId)
+                .stream()
+                .map(PresencaDTO::new)
+                .collect(Collectors.toList());
+    }
 
     // Registrar presença de colaborador
     @PostMapping("/{colaboradorId}")

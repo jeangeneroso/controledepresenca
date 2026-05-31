@@ -2,8 +2,11 @@ package com.example.controledepresenca.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.example.controledepresenca.model.Lider;
 
+@Service
 public class LiderService {
 
 	public List<Lider> listarTodos() {
