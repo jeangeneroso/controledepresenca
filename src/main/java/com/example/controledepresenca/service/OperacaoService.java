@@ -9,25 +9,40 @@ import com.example.controledepresenca.model.Operacao;
 @Service
 public class OperacaoService {
 
-	private final OperacaoRepository Repository;
+	private final OperacaoRepository repository;
 
     public OperacaoService(OperacaoRepository repository) {
-        Repository = repository;
+        this.repository = repository;
     }
 
     public List<Operacao> listarTodos() {
-		return Repository.findAll();
+		return repository.findAll();
 	}
 
 	public Operacao salvar(Operacao operacao) {
 		// TODO Auto-generated method stub
-		return null;
+
+		if (operacao.getNomeOperacao() == null || operacao.getNomeOperacao() .trim().isEmpty()) {
+			throw new IllegalArgumentException(" Nome da Operação é Obrigatoria ");
+		}
+		return repository.save(operacao);
 	}
 
+	/*public Operacao salvar(Integer id, Operacao dadosAtualizados) {
+		// TODO Auto-generated method stub
+
+		Operacao operacao = repository.findById(id)
+				.orElseThrow(() -> new RuntimeException(" Operação não cadastrada "));
+		operacao.setNomeOperacao(dadosAtualizados.getNomeOperacao());
+		operacao.setNomeOperacao(dadosAtualizados.getNomeOperacao());
+		return repository.save(operacao);
+
+	}*/
+
 	public void excluir(Integer id) {
-		Operacao operacao = Repository.findById(id)
+		Operacao operacao = repository.findById(id)
 				.orElseThrow(() -> new RuntimeException(" Operacao não cadastrada "));
-		Repository.delete(operacao);
+		repository.delete(operacao);
 
 	}
 
