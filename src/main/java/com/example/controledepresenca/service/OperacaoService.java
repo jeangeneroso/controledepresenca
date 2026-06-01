@@ -1,7 +1,7 @@
 package com.example.controledepresenca.service;
 
 import java.util.List;
-
+import com.example.controledepresenca.repository.OperacaoRepository;
 import org.springframework.stereotype.Service;
 
 import com.example.controledepresenca.model.Operacao;
@@ -9,9 +9,14 @@ import com.example.controledepresenca.model.Operacao;
 @Service
 public class OperacaoService {
 
-	public List<Operacao> listarTodos() {
-		// TODO Auto-generated method stub
-		return null;
+	private final OperacaoRepository Repository;
+
+    public OperacaoService(OperacaoRepository repository) {
+        Repository = repository;
+    }
+
+    public List<Operacao> listarTodos() {
+		return Repository.findAll();
 	}
 
 	public Operacao salvar(Operacao operacao) {
@@ -20,8 +25,10 @@ public class OperacaoService {
 	}
 
 	public void excluir(Integer id) {
-		// TODO Auto-generated method stub
-		
+		Operacao operacao = Repository.findById(id)
+				.orElseThrow(() -> new RuntimeException(" Operacao não cadastrada "));
+		Repository.delete(operacao);
+
 	}
 
 }
