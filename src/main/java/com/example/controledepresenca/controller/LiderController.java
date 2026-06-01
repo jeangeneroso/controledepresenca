@@ -34,7 +34,7 @@ public class LiderController {
 	
 	@GetMapping("/{id}")
 	public Lider getPorId (@PathVariable Integer id) {
-		return liderService.listTodosPorId(id);
+		return liderService.listarPorId(id);
 	}
 	
 	

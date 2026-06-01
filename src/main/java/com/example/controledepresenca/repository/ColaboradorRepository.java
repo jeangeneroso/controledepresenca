@@ -1,18 +1,27 @@
 package com.example.controledepresenca.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.example.controledepresenca.model.Colaborador;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ColaboradorRepository {
+@Repository
+public interface ColaboradorRepository extends JpaRepository<Colaborador, Integer> {
 
 	List<Colaborador> findAll();
-
-	Colaborador save(Colaborador colaborador);
-
-	Object findById(Integer id);
-
+	
+	Optional<Colaborador> findById(Integer id);
+	
 	void delete(Colaborador colaborador);
 
-
 }
+
+/*List<Colaborador> findByIdAndNomeColaboradorAndChavePixAndOperacao(
+        Integer id,
+        String nomeColaborador,
+        String chavePix,
+        Operacao operacao
+    );
+*/

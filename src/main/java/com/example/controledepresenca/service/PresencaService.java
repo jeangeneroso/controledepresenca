@@ -41,7 +41,7 @@ public class PresencaService {
     }
 
     public Presenca incluirPresencaColaborador(Integer colaboradorId, Presenca presenca) {
-        Colaborador colaborador = ((Object) colaboradorRepository.findById(colaboradorId))
+        Colaborador colaborador = colaboradorRepository.findById(colaboradorId)
                 .orElseThrow(() -> new RuntimeException("Colaborador não cadastrado"));
 
         presenca.setColaborador(colaborador);
