@@ -12,10 +12,10 @@
 	</parent>
 
 	<groupId>com.example</groupId>
-	<artifactId>controledegastos</artifactId>
+	<artifactId>controledepresenca</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>controledegastos</name>
-	<description>Controle de Gastos</description>
+	<description>Controle de Presenca</description>
 
 	<properties>
 		<java.version>1.8</java.version> <!-- Ajustado para Java 8 -->
