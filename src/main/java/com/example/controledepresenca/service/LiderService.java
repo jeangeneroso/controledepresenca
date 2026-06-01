@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.controledepresenca.model.Lider;
-import com.example.controledepresenca.repository.ColaboradorRepository;
 import com.example.controledepresenca.repository.LiderRepository;
 
 @Service
@@ -27,12 +26,21 @@ public class LiderService {
 
 	public Lider salvar(Lider lider) {
 		// TODO Auto-generated method stub
-		return null;
+
+		if (lider.getNomeLider() == null || lider.getNomeLider().trim().isEmpty()) {
+			throw new IllegalArgumentException("Nome do colaborador é obrigatório");
+		}
+		return repository.save(lider);
 	}
 
-	public Lider atualizar(Integer id, Lider lider) {
+	public Lider atualizar(Integer id, Lider dadosAtualizados) {
 		// TODO Auto-generated method stub
-		return null;
+
+		Lider lider = repository.findById(id)
+				.orElseThrow(() -> new RuntimeException(" Lider não cadastrado "));
+		lider.setNomeLider(dadosAtualizados.getNomeLider());
+		lider.setChavePix(dadosAtualizados.getChavePix());
+		return repository.save(lider);
 	}
 
 	public void excluir(Integer id) {
