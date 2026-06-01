@@ -14,7 +14,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>controledepresenca</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>controledegastos</name>
+	<name>controledepresenca</name>
 	<description>Controle de Presenca</description>
 
 	<properties>
