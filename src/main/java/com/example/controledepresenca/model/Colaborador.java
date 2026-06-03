@@ -26,8 +26,10 @@ public class Colaborador {
     @Column(nullable = false)
     private String nomeColaborador;
 
+	@Column(nullable = false)
 	private String rgColaborador;
 
+	@Column(nullable = false)
 	private String cpfColaborador;
     
     @Column(nullable = false)
