@@ -22,6 +22,12 @@ public class Lider {
     
     @Column(nullable = false)
 	private String nomeLider;
+
+	@Column(nullable = false)
+	private String rgLider;
+
+	@Column(nullable = false)
+	private String cpfLider;
     
     @Column(nullable = false)
 	private String chavePix;
@@ -59,6 +65,22 @@ public class Lider {
 
 	public void setNomeLider(String nomeLider) {
 		this.nomeLider = nomeLider;
+	}
+
+	public String getRgLider() {
+		return rgLider;
+	}
+
+	public void setRgLider(String rgLider) {
+		this.rgLider = rgLider;
+	}
+
+	public String getCpfLider() {
+		return cpfLider;
+	}
+
+	public void setCpfLider(String cpfLider) {
+		this.cpfLider = cpfLider;
 	}
 
 	public String getChavePix() {
