@@ -26,6 +26,11 @@ public class Colaborador {
     @Column(nullable = false)
     private String nomeColaborador;
 
+	private String rgColaborador;
+
+	private String cpfColaborador;
+    
+    @Column(nullable = false)
     private String chavePix;
 
     private Double valorDiaria = 130.00;
@@ -61,6 +66,22 @@ public class Colaborador {
 
 	public void setNomeColaborador(String nomeColaborador) {
 		this.nomeColaborador = nomeColaborador;
+	}
+
+	public String getCpfColaborador() {
+		return cpfColaborador;
+	}
+
+	public void setCpfColaborador(String cpfColaborador) {
+		this.cpfColaborador = cpfColaborador;
+	}
+
+	public String getRgColaborador() {
+		return rgColaborador;
+	}
+
+	public void setRgColaborador(String rgColaborador) {
+		this.rgColaborador = rgColaborador;
 	}
 
 	public String getChavePix() {

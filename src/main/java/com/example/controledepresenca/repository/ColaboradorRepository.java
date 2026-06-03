@@ -17,11 +17,3 @@ public interface ColaboradorRepository extends JpaRepository<Colaborador, Intege
 	void delete(Colaborador colaborador);
 
 }
-
-/*List<Colaborador> findByIdAndNomeColaboradorAndChavePixAndOperacao(
-        Integer id,
-        String nomeColaborador,
-        String chavePix,
-        Operacao operacao
-    );
-*/

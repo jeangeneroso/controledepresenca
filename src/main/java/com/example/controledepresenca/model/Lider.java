@@ -23,6 +23,7 @@ public class Lider {
     @Column(nullable = false)
 	private String nomeLider;
     
+    @Column(nullable = false)
 	private String chavePix;
 	
 	private Double valorDiaria = 160.00;
