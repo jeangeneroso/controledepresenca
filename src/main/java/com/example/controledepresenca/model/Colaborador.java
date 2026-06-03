@@ -25,7 +25,8 @@ public class Colaborador {
 
     @Column(nullable = false)
     private String nomeColaborador;
-
+    
+    @Column(nullable = false)
     private String chavePix;
 
     private Double valorDiaria = 130.00;

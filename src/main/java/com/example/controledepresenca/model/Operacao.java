@@ -1,5 +1,6 @@
 package com.example.controledepresenca.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,9 +13,9 @@ public class Operacao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private Integer id;
 
+	@Column(nullable = false)
 	private String nomeOperacao;
 
 	public Operacao() {
