@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.controledepresenca.dto.PresencaDTO;
+import com.example.controledepresenca.dto.RegistroPresencaDTO;
 import com.example.controledepresenca.model.Colaborador;
-import com.example.controledepresenca.model.Presenca;
+import com.example.controledepresenca.model.RegistroPresenca;
 import com.example.controledepresenca.service.ColaboradorService;
-import com.example.controledepresenca.service.PresencaService;
+import com.example.controledepresenca.service.RegistroPresencaService;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
 @RequestMapping("/presencas")
-public class PresencaController {
+public class RegistroPresencaController {
 	
-	private final PresencaService presencaService;
+	private final RegistroPresencaService presencaService;
 	
-	public PresencaController (PresencaService presencaService) {
+	public RegistroPresencaController (RegistroPresencaService presencaService) {
 		this.presencaService = presencaService;
 	}
 
@@ -38,44 +38,44 @@ public class PresencaController {
 	  
 	// Listar todas as presenças
     @GetMapping
-    public List<PresencaDTO> getTodos() {
+    public List<RegistroPresencaDTO> getTodos() {
         return presencaService.listarTodos()
                 .stream()
-                .map(PresencaDTO::new) // transforma entidade em DTO
+                .map(RegistroPresencaDTO::new) // transforma entidade em DTO
                 .collect(Collectors.toList());
     }
     
  // Listar presenças de um colaborador específico
     @GetMapping("/colaborador/{colaboradorId}")
-    public List<PresencaDTO> getPresencasPorColaborador(@PathVariable Integer colaboradorId) {
+    public List<RegistroPresencaDTO> getPresencasPorColaborador(@PathVariable Integer colaboradorId) {
         return presencaService.listarPorColaborador(colaboradorId)
                 .stream()
-                .map(PresencaDTO::new)
+                .map(RegistroPresencaDTO::new)
                 .collect(Collectors.toList());
     }
 
     // Listar presenças de um líder específico
     @GetMapping("/lider/{liderId}")
-    public List<PresencaDTO> getPresencasPorLider(@PathVariable Integer liderId) {
+    public List<RegistroPresencaDTO> getPresencasPorLider(@PathVariable Integer liderId) {
         return presencaService.listarPorLider(liderId)
                 .stream()
-                .map(PresencaDTO::new)
+                .map(RegistroPresencaDTO::new)
                 .collect(Collectors.toList());
     }
 
     // Registrar presença de colaborador
     @PostMapping("/{colaboradorId}")
-    public Presenca incluirPresencaColaborador(
+    public RegistroPresenca incluirPresencaColaborador(
             @PathVariable Integer colaboradorId,
-            @RequestBody Presenca presenca) {
+            @RequestBody RegistroPresenca presenca) {
         return presencaService.incluirPresencaColaborador(colaboradorId, presenca);
     }
 
     // Registrar presença de líder
     @PostMapping("/lider/{liderId}")
-    public Presenca incluirPresencaLider(
+    public RegistroPresenca incluirPresencaLider(
             @PathVariable Integer liderId,
-            @RequestBody Presenca presenca) {
+            @RequestBody RegistroPresenca presenca) {
         return presencaService.incluirPresencaLider(liderId, presenca);
     }
 

@@ -45,7 +45,7 @@ public class Colaborador {
     
  // Relacionamento com Presenca
     @OneToMany(mappedBy = "colaborador")
-    private List<Presenca> presencas;
+    private List<RegistroPresenca> presencas;
 
     public Colaborador() {
     	
@@ -131,11 +131,11 @@ public class Colaborador {
 		this.operacao = operacao;
 	}
 
-	public List<Presenca> getPresencas() {
+	public List<RegistroPresenca> getPresencas() {
 		return presencas;
 	}
 
-	public void setPresencas(List<Presenca> presencas) {
+	public void setPresencas(List<RegistroPresenca> presencas) {
 		this.presencas = presencas;
 	}
 	

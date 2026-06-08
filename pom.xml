@@ -54,6 +54,7 @@
 
 		<!-- <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> 
 			<version>5.1.49</version> Compatível com Java 8 <scope>runtime</scope> </dependency> -->
+			
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>

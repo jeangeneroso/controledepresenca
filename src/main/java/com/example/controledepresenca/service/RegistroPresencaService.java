@@ -8,19 +8,19 @@ import org.springframework.stereotype.Service;
 
 import com.example.controledepresenca.model.Colaborador;
 import com.example.controledepresenca.model.Lider;
-import com.example.controledepresenca.model.Presenca;
+import com.example.controledepresenca.model.RegistroPresenca;
 import com.example.controledepresenca.repository.ColaboradorRepository;
 import com.example.controledepresenca.repository.LiderRepository;
-import com.example.controledepresenca.repository.PresencaRepository;
+import com.example.controledepresenca.repository.RegistroPresencaRepository;
 
 @Service
-public class PresencaService {
+public class RegistroPresencaService {
 	
-	private final PresencaRepository presencaRepository;
+	private final RegistroPresencaRepository presencaRepository;
     private final ColaboradorRepository colaboradorRepository;
     private final LiderRepository liderRepository;
 
-    public PresencaService(PresencaRepository presencaRepository,
+    public RegistroPresencaService(RegistroPresencaRepository presencaRepository,
                            ColaboradorRepository colaboradorRepository,
                            LiderRepository liderRepository) {
         this.presencaRepository = presencaRepository;
@@ -28,19 +28,19 @@ public class PresencaService {
         this.liderRepository = liderRepository;
     }
 
-    public List<Presenca> listarTodos() {
+    public List<RegistroPresenca> listarTodos() {
         return presencaRepository.findAll();
     }
 
-    public List<Presenca> listarPorColaborador(Integer colaboradorId) {
+    public List<RegistroPresenca> listarPorColaborador(Integer colaboradorId) {
         return presencaRepository.findByColaboradorId(colaboradorId);
     }
 
-    public List<Presenca> listarPorLider(Integer liderId) {
+    public List<RegistroPresenca> listarPorLider(Integer liderId) {
         return presencaRepository.findByLiderId(liderId);
     }
 
-    public Presenca incluirPresencaColaborador(Integer colaboradorId, Presenca presenca) {
+    public RegistroPresenca incluirPresencaColaborador(Integer colaboradorId, RegistroPresenca presenca) {
         Colaborador colaborador = colaboradorRepository.findById(colaboradorId)
                 .orElseThrow(() -> new RuntimeException("Colaborador não cadastrado"));
 
@@ -49,7 +49,7 @@ public class PresencaService {
         return presencaRepository.save(presenca);
     }
 
-    public Presenca incluirPresencaLider(Integer liderId, Presenca presenca) {
+    public RegistroPresenca incluirPresencaLider(Integer liderId, RegistroPresenca presenca) {
         Lider lider = liderRepository.findById(liderId)
                 .orElseThrow(() -> new RuntimeException("Líder não cadastrado"));
 
