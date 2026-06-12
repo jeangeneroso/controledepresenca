@@ -15,7 +15,7 @@ public class Operacao {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(nullable = false)
+	@Column(length = 20,nullable = false)
 	private String nomeOperacao;
 
 	public Operacao() {

@@ -20,16 +20,16 @@ public class Lider {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto incremento
 	private Integer id;
     
-    @Column(nullable = false)
+    @Column(length = 150, nullable = false)
 	private String nomeLider;
 
-	@Column(nullable = false)
+	@Column(length = 15,nullable = false)
 	private String rgLider;
 
-	@Column(nullable = false)
+	@Column(length = 15,nullable = false)
 	private String cpfLider;
     
-    @Column(nullable = false)
+    @Column(length = 50,nullable = false)
 	private String chavePix;
 	
 	private Double valorDiaria = 160.00;

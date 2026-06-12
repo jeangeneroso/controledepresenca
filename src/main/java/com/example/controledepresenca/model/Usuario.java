@@ -10,7 +10,7 @@ public class Usuario {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
-        @Column(nullable = false, unique = true, length = 50)
+        @Column(nullable = false, unique = true, length = 25)
         private String usuario; // O login/username do usuário (não pode repetir no banco)
 
         @Column(nullable = false, length = 255)

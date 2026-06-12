@@ -20,16 +20,16 @@ public class Colaborador {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto incremento
     private Integer id;
 
-    @Column(nullable = false)
+	@Column(length = 150, nullable = false)
     private String nomeColaborador;
 
-	@Column(nullable = false)
+	@Column(length = 15,nullable = false)
 	private String rgColaborador;
 
-	@Column(nullable = false)
+	@Column(length = 15,nullable = false)
 	private String cpfColaborador;
-    
-    @Column(nullable = false)
+
+	@Column(length = 50,nullable = false)
     private String chavePix;
 
     private Double valorDiaria = 130.00;
