@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "presenca")
-public class Presenca {
+public class RegistroPresenca {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
