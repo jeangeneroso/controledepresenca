@@ -45,7 +45,7 @@ public class Lider {
 	
 	 // Relacionamento com Presenca
     @OneToMany(mappedBy = "lider")
-    private List<RegistroPresenca> presencas;
+    private List<RegistroDiaria> presencas;
 	
 	public Lider () {
 			
@@ -131,11 +131,11 @@ public class Lider {
 		this.operacao = operacao;
 	}
 
-	public List<RegistroPresenca> getPresencas() {
+	public List<RegistroDiaria> getPresencas() {
 		return presencas;
 	}
 
-	public void setPresencas(List<RegistroPresenca> presencas) {
+	public void setPresencas(List<RegistroDiaria> presencas) {
 		this.presencas = presencas;
 	}	
 	

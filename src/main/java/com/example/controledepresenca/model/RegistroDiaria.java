@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "presenca")
-public class RegistroPresenca {
+public class RegistroDiaria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,9 +33,11 @@ public class RegistroPresenca {
 	@ManyToOne
 	@JoinColumn(name = "colaborador_id")
 	private Colaborador colaborador;
+	
+	private String funcao;
 
 	@Enumerated(EnumType.STRING)
-	private StatusPresenca status; // status da presença
+	private StatusDiarias status; // status da presença
 
 	public Integer getId() {
 		return id;
@@ -77,11 +79,11 @@ public class RegistroPresenca {
 		this.colaborador = colaborador;
 	}
 
-	public StatusPresenca getStatus() {
+	public StatusDiarias getStatus() {
 		return status;
 	}
 
-	public void setStatus(StatusPresenca status) {
+	public void setStatus(StatusDiarias status) {
 		this.status = status;
 	}
 

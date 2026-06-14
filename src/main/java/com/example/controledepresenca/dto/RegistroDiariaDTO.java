@@ -2,16 +2,16 @@ package com.example.controledepresenca.dto;
 
 import java.time.LocalDate;
 
-import com.example.controledepresenca.model.RegistroPresenca;
+import com.example.controledepresenca.model.RegistroDiaria;
 
-public class RegistroPresencaDTO {
+public class RegistroDiariaDTO {
 	
 	    private String nomeColaborador;
 	    private String nomeLider;
 	    private LocalDate dia;
 	    private String status;
 
-	    public RegistroPresencaDTO(RegistroPresenca presenca) {
+	    public RegistroDiariaDTO(RegistroDiaria presenca) {
 	        if (presenca.getColaborador() != null) {
 	            this.nomeColaborador = presenca.getColaborador().getNomeColaborador();
 	        }
