@@ -2,6 +2,7 @@ package com.example.controledepresenca.controller;
 
 import java.util.List;
 
+import com.example.controledepresenca.dto.ColaboradorCadastroDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,14 +39,14 @@ public class ColaboradorController {
     }
         
     @PostMapping
-    public ResponseEntity<String> criar(@RequestBody Colaborador colaborador) {
-        colaboradorService.salvar(colaborador);
+    public ResponseEntity<String> criar(@RequestBody ColaboradorCadastroDTO dto) {
+        colaboradorService.salvar(dto);
         return ResponseEntity.ok(" Cadastro efetuado com sucesso! ");
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<String> atualizar(@PathVariable Integer id, @RequestBody Colaborador colaborador) {
-        colaboradorService.atualizar(id, colaborador);
+    public ResponseEntity<String> atualizar(@PathVariable Integer id, @RequestBody ColaboradorCadastroDTO dto) {
+        colaboradorService.atualizar(id, dto);
         return ResponseEntity.ok(" Atualização realizada com sucesso! ");
     }
     
