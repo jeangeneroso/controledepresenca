@@ -32,7 +32,7 @@ public class RegistroDiariaController {
 	}
 
     // Registrar presença de colaborador
-    @PostMapping("/{colaboradorId}")
+    @PostMapping("/colaboradorId")
     public RegistroDiaria incluirPresencaColaborador(
             @PathVariable Integer colaboradorId,
             @RequestBody RegistroDiaria presenca) {
@@ -40,7 +40,7 @@ public class RegistroDiariaController {
     }
 
     // Registrar presença de líder
-    @PostMapping("/lider/{liderId}")
+    @PostMapping("/liderId")
     public RegistroDiaria incluirPresencaLider(
             @PathVariable Integer liderId,
             @RequestBody RegistroDiaria presenca) {
