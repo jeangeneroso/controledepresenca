@@ -2,6 +2,7 @@ package com.example.controledepresenca.service;
 
 import java.util.List;
 
+import com.example.controledepresenca.dto.LiderCadastroDTO;
 import org.springframework.stereotype.Service;
 
 import com.example.controledepresenca.model.Lider;
@@ -24,16 +25,23 @@ public class LiderService {
 		return repository.findById(id).orElse(null);
 	}
 
-	public Lider salvar(Lider lider) {
+	public Lider salvar(LiderCadastroDTO dto) {
 		// TODO Auto-generated method stub
 
-		if (lider.getNomeLider() == null || lider.getNomeLider().trim().isEmpty()) {
-			throw new IllegalArgumentException("Nome do colaborador é obrigatório");
+		if (dto.getNomeLider() == null || dto.getNomeLider().trim().isEmpty()) {
+			throw new IllegalArgumentException("Nome do lider é obrigatório");
+
 		}
+			Lider lider = new Lider();
+			lider.setNomeLider(dto.getNomeLider());
+			lider.setRgLider(dto.getRgLider());
+			lider.setCpfLider(dto.getCpfLider());
+			lider.setChavePix(dto.getChavePix());
+
 		return repository.save(lider);
 	}
 
-	public Lider atualizar(Integer id, Lider dadosAtualizados) {
+	public Lider atualizar(Integer id, LiderCadastroDTO dadosAtualizados) {
 		// TODO Auto-generated method stub
 
 		Lider lider = repository.findById(id)

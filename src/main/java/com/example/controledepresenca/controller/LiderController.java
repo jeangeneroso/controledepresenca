@@ -2,6 +2,7 @@ package com.example.controledepresenca.controller;
 
 import java.util.List;
 
+import com.example.controledepresenca.dto.LiderCadastroDTO;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,14 +40,14 @@ public class LiderController {
 	
 	
 	@PostMapping
-	public Lider criar (@RequestBody Lider lider) {
-		return liderService.salvar(lider);	
+	public Lider criar (@RequestBody LiderCadastroDTO dto) {
+		return liderService.salvar(dto);
 	}
 	
 
 	@PutMapping("/{id}")
-	public Lider atualizar (@PathVariable Integer id, @RequestBody Lider lider) {
-		return liderService.atualizar(id, lider);		
+	public Lider atualizar (@PathVariable Integer id, @RequestBody LiderCadastroDTO dto) {
+		return liderService.atualizar(id, dto);
 	}
 	
 	
