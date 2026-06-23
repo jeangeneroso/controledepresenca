@@ -3,11 +3,10 @@ package com.example.controledepresenca.service;
 
 import com.example.controledepresenca.model.Relatorio;
 import com.example.controledepresenca.repository.RelatorioRepository;
-
 import java.util.List;
+import org.springframework.stereotype.Service;
 
-import org.springframework.web.bind.annotation.GetMapping;
-
+@Service
 public class RelatorioService {
 
     private final RelatorioRepository repository;
