@@ -32,12 +32,6 @@ public class Lider {
     @Column(length = 50,nullable = false)
 	private String chavePix;
 	
-	private Double valorDiaria = 160.00;
-	private Double somaTotalDiaria;
-	
-	private Double valorHoraExtra = 15.00;
-	private Double somaTotalHoraExtra;
-	
 	// Relacionamento com Operacao
     @ManyToOne
     @JoinColumn(name = "operacao_id")
@@ -89,38 +83,6 @@ public class Lider {
 
 	public void setChavePix(String chavePix) {
 		this.chavePix = chavePix;
-	}
-
-	public Double getValorDiaria() {
-		return valorDiaria;
-	}
-
-	public void setValorDiaria(Double valorDiaria) {
-		this.valorDiaria = valorDiaria;
-	}
-
-	public Double getSomaTotalDiaria() {
-		return somaTotalDiaria;
-	}
-
-	public void setSomaTotalDiaria(Double somaTotalDiaria) {
-		this.somaTotalDiaria = somaTotalDiaria;
-	}
-
-	public Double getValorHoraExtra() {
-		return valorHoraExtra;
-	}
-
-	public void setValorHoraExtra(Double valorHoraExtra) {
-		this.valorHoraExtra = valorHoraExtra;
-	}
-
-	public Double getSomaTotalHoraExtra() {
-		return somaTotalHoraExtra;
-	}
-
-	public void setSomaTotalHoraExtra(Double somaTotalHoraExtra) {
-		this.somaTotalHoraExtra = somaTotalHoraExtra;
 	}
 
 	public Operacao getOperacao() {
