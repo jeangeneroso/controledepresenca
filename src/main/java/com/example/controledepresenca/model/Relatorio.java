@@ -1,11 +1,25 @@
 package com.example.controledepresenca.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "relatorios")
 public class Relatorio {
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@ManyToOne
+	@JoinColumn(name = "colaborador_id")
 	private Colaborador colaborador;
-		
+
+	@ManyToOne
+	@JoinColumn(name = "colaborador_lider")
 	private Lider lider;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "colaborador_operacao")
 	private Operacao operacao;
 
 	public Colaborador getColaborador() {
@@ -31,5 +45,5 @@ public class Relatorio {
 	public void setOperacao(Operacao operacao) {
 		this.operacao = operacao;
 	}
-	
+
 }
