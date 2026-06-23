@@ -33,11 +33,11 @@ public class Colaborador {
     private String chavePix;
 
     private Double valorDiaria = 130.00;
-    private Double somaTotalDiaria;
-
+    /*private Double somaTotalDiaria;
+*/
     private Double valorHoraExtra = 12.00;
-    private Double somaTotalHoraExtra;
-    
+    /*private Double somaTotalHoraExtra;
+    */
  // Relacionamento com Operacao
     @ManyToOne
     @JoinColumn(name = "operacao_id")
@@ -99,13 +99,13 @@ public class Colaborador {
 		this.valorDiaria = valorDiaria;
 	}
 
-	public Double getSomaTotalDiaria() {
+	/*public Double getSomaTotalDiaria() {
 		return somaTotalDiaria;
-	}
+	}*/
 
-	public void setSomaTotalDiaria(Double somaTotalDiaria) {
+	/*public void setSomaTotalDiaria(Double somaTotalDiaria) {
 		this.somaTotalDiaria = somaTotalDiaria;
-	}
+	}*/
 
 	public Double getValorHoraExtra() {
 		return valorHoraExtra;
@@ -115,13 +115,13 @@ public class Colaborador {
 		this.valorHoraExtra = valorHoraExtra;
 	}
 
-	public Double getSomaTotalHoraExtra() {
+	/*public Double getSomaTotalHoraExtra() {
 		return somaTotalHoraExtra;
-	}
+	}*/
 
-	public void setSomaTotalHoraExtra(Double somaTotalHoraExtra) {
+	/*public void setSomaTotalHoraExtra(Double somaTotalHoraExtra) {
 		this.somaTotalHoraExtra = somaTotalHoraExtra;
-	}
+	}*/
 
 	public Operacao getOperacao() {
 		return operacao;
