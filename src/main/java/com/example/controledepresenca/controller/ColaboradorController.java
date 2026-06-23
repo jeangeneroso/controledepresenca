@@ -36,38 +36,12 @@ public class ColaboradorController {
     public Colaborador getPorId(@PathVariable Integer id) {
         return colaboradorService.listarPorId(id);
     }
-    
-  /*  @GetMapping("/{id}")
-    public ResponseEntity<Colaborador> buscarPorId(@PathVariable Integer id) {
-        try {
-            Colaborador colaborador = service.listarPorId(id);
-            return ResponseEntity.ok(colaborador);
-        } catch (ColaboradorNaoEncontradoException e) {
-            return ResponseEntity.notFound().build();
-        }
-    }
-*/
-       
-   /* @GetMapping("/nome/{nome}")
-    public List<Colaborador> buscarPorNome(@PathVariable String nomeColaborador) {
-        return colaboradorService.buscarPorNome(nomeColaborador);
-    }*/
-
-    /*@PostMapping
-    public Colaborador criar(@RequestBody Colaborador colaborador) {
-        return colaboradorService.salvar(colaborador);
-    }*/
-    
+        
     @PostMapping
     public ResponseEntity<String> criar(@RequestBody Colaborador colaborador) {
         colaboradorService.salvar(colaborador);
         return ResponseEntity.ok(" Cadastro efetuado com sucesso! ");
     }
-
-    /*@PutMapping("/{id}")
-    public Colaborador atualizar(@PathVariable Integer id, @RequestBody Colaborador colaborador) {
-        return colaboradorService.atualizar(id, colaborador);
-    }*/
     
     @PutMapping("/{id}")
     public ResponseEntity<String> atualizar(@PathVariable Integer id, @RequestBody Colaborador colaborador) {

@@ -1,9 +1,11 @@
 package com.example.controledepresenca.controller;
 
-import com.example.controledepresenca.model.Colaborador;
-import com.example.controledepresenca.model.Lider;
+import com.example.controledepresenca.model.Relatorio;
 import com.example.controledepresenca.service.RelatorioService;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -14,16 +16,19 @@ public class RelatorioController {
     public RelatorioController(RelatorioService relatorioService) {
         this.relatorioService = relatorioService;
     }
-
-    @GetMapping("/colaborador")
-    public List<Colaborador> getColaborador () {
-        return relatorioService.getColaborador();
+    
+    @GetMapping
+    public List<Relatorio> getTodos() {
+        return relatorioService.ListarTodos();
     }
-
-    @GetMapping("/lider")
-    public List<Lider> getLider () {
-        return relatorioService.getLider();
+    
+    
+/*    @GetMapping("/relatorios")
+    public ResponseEntity<List<Relatorio>> buscarRelatorios(
+            @RequestParam(required = false) String nome,
+            @RequestParam(required = false) String cpf) {
+        return ResponseEntity.ok(relatorioService.buscarRelatorios(nome, cpf));
     }
-
-
+*/
+       
 }

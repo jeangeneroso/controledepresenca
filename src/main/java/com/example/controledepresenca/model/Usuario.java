@@ -13,7 +13,7 @@ public class Usuario {
         @Column(nullable = false, unique = true, length = 25)
         private String usuario; // O login/username do usuário (não pode repetir no banco)
 
-        @Column(nullable = false, length = 255)
+        @Column(nullable = false, length = 10)
         private String senha; // A senha (que ficará criptografada)
 
         // Construtor padrão obrigatório do JPA

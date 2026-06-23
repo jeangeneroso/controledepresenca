@@ -7,7 +7,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface RelatorioRepository extends JpaRepository<Relatorio, Integer> {
+	
+    List<Relatorio> findByColaborador_NomeColaborador(String nome);
+    
+    List<Relatorio> findByColaborador_CpfColaborador(String cpf);
+    
+	List<Relatorio> findByLider_NomeLider(String nome);
 
-    List<Colaborador> getColaborador ();
-
+	List<Relatorio> findByLider_cpfLider(String cpf);
 }
+

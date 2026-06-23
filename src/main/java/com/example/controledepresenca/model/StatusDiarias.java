@@ -1,6 +1,6 @@
 package com.example.controledepresenca.model;
 
-public enum StatusPresenca {
+public enum StatusDiarias {
 
 	PRESENTE,
 	FOLGA,

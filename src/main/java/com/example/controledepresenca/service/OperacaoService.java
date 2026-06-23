@@ -28,17 +28,6 @@ public class OperacaoService {
 		return repository.save(operacao);
 	}
 
-	/*public Operacao salvar(Integer id, Operacao dadosAtualizados) {
-		// TODO Auto-generated method stub
-
-		Operacao operacao = repository.findById(id)
-				.orElseThrow(() -> new RuntimeException(" Operação não cadastrada "));
-		operacao.setNomeOperacao(dadosAtualizados.getNomeOperacao());
-		operacao.setNomeOperacao(dadosAtualizados.getNomeOperacao());
-		return repository.save(operacao);
-
-	}*/
-
 	public void excluir(Integer id) {
 		Operacao operacao = repository.findById(id)
 				.orElseThrow(() -> new RuntimeException(" Operacao não cadastrada "));

@@ -21,18 +21,8 @@ public class ColaboradorService {
     public List<Colaborador> listarTodos() {
         return repository.findAll();
     }
-    
-    /*public Colaborador buscarPorId(Integer id) {
-        return repository.findById(id).orElse(null);
-    }
-*/
-    
-   /* public Colaborador listarPorId(Integer id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new ColaboradorNaoEncontradoException(id));
-    }
-*/
-    
+        
+   
     public Colaborador listarPorId(Integer id) {
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException(" Colaborador não cadastrado "));
@@ -59,11 +49,6 @@ public class ColaboradorService {
         repository.delete(colaborador);
     }
 
-/*	public List<Colaborador> buscarPorNome(String nomeColaborador) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-*/
 }
 
 
