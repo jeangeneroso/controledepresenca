@@ -33,8 +33,6 @@ public class RegistroDiaria {
 	@ManyToOne
 	@JoinColumn(name = "colaborador_id")
 	private Colaborador colaborador;
-	
-	private String funcao;
 
 	@Enumerated(EnumType.STRING)
 	private StatusDiarias status; // status da presença
