@@ -20,7 +20,7 @@ public class RegistroDiaria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	private LocalDate dia;
+	private LocalDate data;
 
 	@ManyToOne
 	@JoinColumn(name = "operacao_id")
@@ -46,11 +46,11 @@ public class RegistroDiaria {
 	}
 
 	public LocalDate getDia() {
-		return dia;
+		return data;
 	}
 
 	public void setDia(LocalDate dia) {
-		this.dia = dia;
+		this.data = data;
 	}
 
 	public Operacao getOperacao() {
