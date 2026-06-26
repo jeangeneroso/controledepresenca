@@ -15,7 +15,7 @@ public class Aprovacao {
     private String aprovador;
 
     // A data e hora exata em que o botão foi clicado
-    private LocalDateTime dataAvaliacao;
+    private LocalDateTime dataAprovacao;
 
     // Um campo para o chefe escrever o motivo caso rejeite a diária
     private String justificativa;
@@ -24,6 +24,10 @@ public class Aprovacao {
     @ManyToOne
     @JoinColumn(name = "status_id")
     private StatusAprovacao status;
+
+    @ManyToOne
+    @JoinColumn(name = "registro_diaria_id")
+    private RegistroDiaria registroDiaria;
 
     public Aprovacao() {
     }
@@ -45,11 +49,11 @@ public class Aprovacao {
     }
 
     public LocalDateTime getDataAvaliacao() {
-        return dataAvaliacao;
+        return dataAprovacao;
     }
 
     public void setDataAvaliacao(LocalDateTime dataAvaliacao) {
-        this.dataAvaliacao = dataAvaliacao;
+        this.dataAprovacao = dataAvaliacao;
     }
 
     public String getJustificativa() {
@@ -66,5 +70,13 @@ public class Aprovacao {
 
     public void setStatus(StatusAprovacao status) {
         this.status = status;
+    }
+
+    public RegistroDiaria getRegistroDiaria() {
+        return registroDiaria;
+    }
+
+    public void setRegistroDiaria(RegistroDiaria registroDiaria) {
+        this.registroDiaria = registroDiaria;
     }
 }
