@@ -1,6 +1,5 @@
 package com.example.controledepresenca.repository;
 
-import com.example.controledepresenca.model.Colaborador;
 import com.example.controledepresenca.model.Relatorio;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
