@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.controledepresenca.model.Colaborador;
 import com.example.controledepresenca.model.Lider;
-import com.example.controledepresenca.service.ColaboradorService;
 import com.example.controledepresenca.service.LiderService;
 
 @RestController
