@@ -1,6 +1,4 @@
 package com.example.controledepresenca.repository;
 
-public interface DiariaRegistradaRepository {
-
-
+public interface AprovacaoRepository {
 }

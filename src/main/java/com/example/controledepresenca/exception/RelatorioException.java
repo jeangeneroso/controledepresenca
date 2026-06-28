@@ -1,5 +1,5 @@
 package com.example.controledepresenca.exception;
 
-public class RelatorioException {
+public class RelatorioException extends RuntimeException {
 
 }

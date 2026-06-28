@@ -1,6 +1,7 @@
 package com.example.controledepresenca.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "diarias_registradas")
@@ -9,6 +10,8 @@ public class DiariaRegistrada {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto incremento
     private Integer id;
+
+    private LocalDate data;
 
     @Column(length = 10,nullable = false)
     private String funcao;
@@ -33,6 +36,14 @@ public class DiariaRegistrada {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     public String getFuncao() {
