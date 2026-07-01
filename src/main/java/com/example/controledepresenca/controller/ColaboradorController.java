@@ -3,6 +3,9 @@ package com.example.controledepresenca.controller;
 import java.util.List;
 
 import com.example.controledepresenca.dto.ColaboradorCadastroDTO;
+import com.example.controledepresenca.dto.LiderCadastroDTO;
+import com.example.controledepresenca.model.Lider;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,15 +41,13 @@ public class ColaboradorController {
     }
         
     @PostMapping
-    public ResponseEntity<String> criar(@RequestBody ColaboradorCadastroDTO dto) {
-        colaboradorService.salvar(dto);
-        return ResponseEntity.ok(" Cadastro efetuado com sucesso! ");
+    public ResponseEntity<Colaborador> criar(@RequestBody ColaboradorCadastroDTO dto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(colaboradorService.salvar(dto));
     }
-    
+
     @PutMapping("/{id}")
-    public ResponseEntity<String> atualizar(@PathVariable Integer id, @RequestBody ColaboradorCadastroDTO dto) {
-        colaboradorService.atualizar(id, dto);
-        return ResponseEntity.ok(" Atualização realizada com sucesso! ");
+    public ResponseEntity<Colaborador> atualizar(@PathVariable Integer id, @RequestBody ColaboradorCadastroDTO dto) {
+        return ResponseEntity.status(HttpStatus.OK).body(colaboradorService.atualizar(id, dto));
     }
     
     @DeleteMapping("/{id}")
