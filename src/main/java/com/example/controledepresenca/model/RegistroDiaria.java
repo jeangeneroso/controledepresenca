@@ -1,6 +1,7 @@
 package com.example.controledepresenca.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
 
@@ -23,6 +24,7 @@ public class RegistroDiaria {
 
 	@ManyToOne
 	@JoinColumn(name = "lider_id")
+	@JsonProperty("lider")
 	private Lider lider;
 
 	@ManyToOne
