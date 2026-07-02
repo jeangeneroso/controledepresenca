@@ -1,5 +1,7 @@
 package com.example.controledepresenca.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 
 import javax.persistence.*;
@@ -12,6 +14,7 @@ public class RegistroDiaria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate data;
 
 	@ManyToOne
@@ -37,11 +40,11 @@ public class RegistroDiaria {
 		this.id = id;
 	}
 
-	public LocalDate getDia() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setDia(LocalDate dia) {
+	public void setData(LocalDate dia) {
 		this.data = data;
 	}
 

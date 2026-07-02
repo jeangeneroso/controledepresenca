@@ -25,21 +25,23 @@ public class RegistroDiariaService {
         this.liderRepository = liderRepository;
     }
 
-    public RegistroDiaria incluirPresencaColaborador(Integer colaboradorId, RegistroDiaria presenca) {
-        Colaborador colaborador = colaboradorRepository.findById(colaboradorId)
-                .orElseThrow(() -> new RuntimeException("Colaborador não cadastrado"));
+    public RegistroDiaria incluirPresencaColaborador(RegistroDiaria presenca) {
+        Integer idDoColaborador = presenca.getColaborador().getId();
+        Colaborador colaborador = colaboradorRepository.findById(idDoColaborador)
+                .orElseThrow(() -> new RuntimeException("Diaria do colaborador não cadastrado"));
 
         presenca.setColaborador(colaborador);
-        presenca.setDia(LocalDate.now()); 
+        presenca.setData(LocalDate.now());
         return presencaRepository.save(presenca);
     }
 
-    public RegistroDiaria incluirPresencaLider(Integer liderId, RegistroDiaria presenca) {
-        Lider lider = liderRepository.findById(liderId)
-                .orElseThrow(() -> new RuntimeException("Líder não cadastrado"));
+    public RegistroDiaria incluirPresencaLider(RegistroDiaria presenca) {
+        Integer idDoLider = presenca.getLider().getId();
+        Lider lider = liderRepository.findById(idDoLider)
+                .orElseThrow(() -> new RuntimeException("Diaria do lide não cadastrado"));
 
         presenca.setLider(lider);
-        presenca.setDia(LocalDate.now()); 
+        presenca.setData(LocalDate.now());
         return presencaRepository.save(presenca);
     }
 	

@@ -18,7 +18,7 @@ public class RegistroDiariaDTO {
 	        if (presenca.getLider() != null) {
 	            this.nomeLider = presenca.getLider().getNomeLider();
 	        }
-	        this.dia = presenca.getDia();
+	        this.dia = presenca.getData();
 	        this.status = presenca.getStatus().name();
 	    }
 

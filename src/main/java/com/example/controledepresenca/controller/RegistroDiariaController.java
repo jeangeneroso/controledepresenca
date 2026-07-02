@@ -21,20 +21,26 @@ public class RegistroDiariaController {
 	}
 
     // Registrar presença de colaborador
-    @PostMapping("/colaboradorId")
+    @PostMapping("/colaborador")
     public RegistroDiaria incluirPresencaColaborador(
-            @PathVariable Integer colaboradorId,
             @RequestBody RegistroDiaria presenca) {
-        return presencaService.incluirPresencaColaborador(colaboradorId, presenca);
+        return presencaService.incluirPresencaColaborador(presenca);
     }
 
     // Registrar presença de líder
-    @PostMapping("/liderId")
+    /*@PostMapping("/lider")
     public RegistroDiaria incluirPresencaLider(
-            @PathVariable Integer liderId,
             @RequestBody RegistroDiaria presenca) {
-        return presencaService.incluirPresencaLider(liderId, presenca);
+        return presencaService.incluirPresencaLider(presenca);
     }
+*/
 
+    @PostMapping("/lider")
+    public RegistroDiaria incluirPresencaLider(@RequestBody RegistroDiaria presenca) {
+        // Esse print vai te mostrar no console do IntelliJ exatamente o que o Java recebeu
+        System.out.println("Objeto recebido: " + presenca);
+        System.out.println("Líder dentro do objeto: " + presenca.getLider());
 
+        return presencaService.incluirPresencaLider(presenca);
+    }
 }
