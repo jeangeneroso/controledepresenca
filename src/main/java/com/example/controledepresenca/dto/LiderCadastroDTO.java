@@ -1,7 +1,10 @@
 package com.example.controledepresenca.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class LiderCadastroDTO {
 
+    @JsonProperty("id")
     private Integer id;
     private String nomeLider;
     private String rgLider;
