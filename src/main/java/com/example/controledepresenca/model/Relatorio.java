@@ -1,6 +1,9 @@
 package com.example.controledepresenca.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "relatorios")
@@ -21,6 +24,21 @@ public class Relatorio {
 	@ManyToOne
 	@JoinColumn(name = "colaborador_operacao")
 	private Operacao operacao;
+
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private LocalDate data;
+
+	public Relatorio (){
+
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public Colaborador getColaborador() {
 		return colaborador;
@@ -46,4 +64,11 @@ public class Relatorio {
 		this.operacao = operacao;
 	}
 
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
 }

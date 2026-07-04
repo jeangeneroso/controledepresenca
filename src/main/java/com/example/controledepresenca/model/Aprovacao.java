@@ -26,8 +26,12 @@ public class Aprovacao {
     private StatusAprovacao status;
 
     @ManyToOne
-    @JoinColumn(name = "registro_diaria_id")
-    private RegistroDiaria registroDiaria;
+    @JoinColumn(name = "registro_diaria_lider")
+    private RegistroDiariaLider registroDiariaLider;
+
+    @ManyToOne
+    @JoinColumn(name = "registro_diaria_colaborador")
+    private RegistroDiariaColaborador registroDiariaColaborador;
 
     public Aprovacao() {
     }
@@ -48,12 +52,12 @@ public class Aprovacao {
         this.aprovador = aprovador;
     }
 
-    public LocalDateTime getDataAvaliacao() {
+    public LocalDateTime getDataAprovacao() {
         return dataAprovacao;
     }
 
-    public void setDataAvaliacao(LocalDateTime dataAvaliacao) {
-        this.dataAprovacao = dataAvaliacao;
+    public void setDataAprovacao(LocalDateTime dataAprovacao) {
+        this.dataAprovacao = dataAprovacao;
     }
 
     public String getJustificativa() {
@@ -72,11 +76,19 @@ public class Aprovacao {
         this.status = status;
     }
 
-    public RegistroDiaria getRegistroDiaria() {
-        return registroDiaria;
+    public RegistroDiariaColaborador getRegistroDiariaColaborador() {
+        return registroDiariaColaborador;
     }
 
-    public void setRegistroDiaria(RegistroDiaria registroDiaria) {
-        this.registroDiaria = registroDiaria;
+    public void setRegistroDiariaColaborador(RegistroDiariaColaborador registroDiariaColaborador) {
+        this.registroDiariaColaborador = registroDiariaColaborador;
+    }
+
+    public RegistroDiariaLider getRegistroDiariaLider() {
+        return registroDiariaLider;
+    }
+
+    public void setRegistroDiariaLider(RegistroDiariaLider registroDiariaLider) {
+        this.registroDiariaLider = registroDiariaLider;
     }
 }
