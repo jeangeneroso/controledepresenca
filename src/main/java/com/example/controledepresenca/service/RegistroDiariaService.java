@@ -1,74 +1,71 @@
 package com.example.controledepresenca.service;
 
 import java.time.LocalDate;
+
+import com.example.controledepresenca.dto.RegistroDiariaColaboradorDTO;
+import com.example.controledepresenca.dto.RegistroDiariaLiderDTO;
+import com.example.controledepresenca.repository.RegistroDiariaColaboradorRepository;
 import org.springframework.stereotype.Service;
 
 import com.example.controledepresenca.model.Colaborador;
 import com.example.controledepresenca.model.Lider;
-import com.example.controledepresenca.model.RegistroDiaria;
+import com.example.controledepresenca.model.RegistroDiariaLider;
+import com.example.controledepresenca.model.RegistroDiariaColaborador;
 import com.example.controledepresenca.repository.ColaboradorRepository;
 import com.example.controledepresenca.repository.LiderRepository;
-import com.example.controledepresenca.repository.RegistroDiariaRepository;
+import com.example.controledepresenca.repository.RegistroDiariaLiderRepository;
 
 @Service
 public class RegistroDiariaService {
-	
-	private final RegistroDiariaRepository presencaRepository;
+
+	private final RegistroDiariaLiderRepository diariasLiderRepository;
+    private final RegistroDiariaColaboradorRepository diariasColaboradorRepository;
     private final ColaboradorRepository colaboradorRepository;
     private final LiderRepository liderRepository;
 
-    public RegistroDiariaService(RegistroDiariaRepository presencaRepository,
-                           ColaboradorRepository colaboradorRepository,
-                           LiderRepository liderRepository) {
-        this.presencaRepository = presencaRepository;
+    public RegistroDiariaService(RegistroDiariaLiderRepository diariasLiderRepository,
+                                 RegistroDiariaColaboradorRepository diariasColaboradorRepository,
+                                 ColaboradorRepository colaboradorRepository,
+                                 LiderRepository liderRepository) {
+        this.diariasLiderRepository = diariasLiderRepository;
+        this.diariasColaboradorRepository = diariasColaboradorRepository;
         this.colaboradorRepository = colaboradorRepository;
         this.liderRepository = liderRepository;
     }
 
-    public RegistroDiaria incluirPresencaColaborador(RegistroDiaria presenca) {
+    public RegistroDiariaColaborador incluirPresencaColaborador(RegistroDiariaColaboradorDTO dto) {
 
-        if (presenca.getColaborador() == null) {
-            presenca.setColaborador(new Colaborador());
-        }
-
-        Integer idDoColaborador = presenca.getColaborador().getId();
-
-        if (idDoColaborador == null) {
+        if (dto == null || dto.getColaborador() == null || dto.getColaborador().getId() == null) {
             throw new RuntimeException("Não foi possível salvar: Nenhum ID de Colaborador foi detectado na requisição.");
         }
+
+        Integer idDoColaborador = dto.getColaborador().getId();
 
         Colaborador colaboradorReal = colaboradorRepository.findById(idDoColaborador)
                 .orElseThrow(() -> new RuntimeException("Colaborador com ID " + idDoColaborador + " não existe."));
 
+        RegistroDiariaColaborador presenca = new RegistroDiariaColaborador();
         presenca.setColaborador(colaboradorReal);
         presenca.setData(LocalDate.now());
 
-        // 4. Salva o registro (o ID da diária incrementa sozinho aqui)
-        return presencaRepository.save(presenca);
+        return diariasColaboradorRepository.save(presenca);
     }
 
-    public RegistroDiaria incluirPresencaLider(RegistroDiaria presenca) {
-        // 1. Evita o NullPointerException se o objeto 'lider' vier nulo do Angular
-        if (presenca.getLider() == null) {
-            presenca.setLider(new Lider());
-        }
+    public RegistroDiariaLider incluirPresencaLider(RegistroDiariaLiderDTO dto) {
 
-        Integer idDoLider = presenca.getLider().getId();
-
-        // 2. Se o ID não foi capturado, avisa o erro sem travar o servidor
-        if (idDoLider == null) {
+        if (dto == null || dto.getLider() == null || dto.getLider().getId() == null) {
             throw new RuntimeException("Não foi possível salvar: Nenhum ID de Líder foi detectado na requisição.");
         }
 
-        // 3. Busca o líder real para o relacionamento
+        Integer idDoLider = dto.getLider().getId();
+
         Lider liderReal = liderRepository.findById(idDoLider)
                 .orElseThrow(() -> new RuntimeException("Líder com ID " + idDoLider + " não existe."));
 
+        RegistroDiariaLider presenca = new RegistroDiariaLider();
         presenca.setLider(liderReal);
         presenca.setData(LocalDate.now());
 
-        // 4. Salva o registro (o ID da diária incrementa sozinho aqui)
-        return presencaRepository.save(presenca);
+        return diariasLiderRepository.save(presenca);
     }
-	
 }

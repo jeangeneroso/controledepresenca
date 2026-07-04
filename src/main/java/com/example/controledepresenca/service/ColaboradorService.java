@@ -49,12 +49,6 @@ public class ColaboradorService {
 
         colaborador.setNomeColaborador(dadosAtualizados.getNomeColaborador());
         colaborador.setChavePix(dadosAtualizados.getChavePix());
-
-        // Se quiser que o PUT também atualize RG e CPF, descomente as linhas abaixo:
-        // colaborador.setRgColaborador(dadosAtualizados.getRgColaborador());
-        // colaborador.setCpfColaborador(dadosAtualizados.getCpfColaborador());
-
-        // CORREÇÃO: Salva a entidade 'colaborador' que foi atualizada
         return repository.save(colaborador);
     }
 
