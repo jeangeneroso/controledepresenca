@@ -1,34 +1,33 @@
 package com.example.controledepresenca.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "diarias_registradas")
-public class DiariaRegistrada {
+@Table(name = "diariaColaborador")
+public class RegistroDiariaColaborador {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto incremento
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate data;
-
-    @Column(length = 10,nullable = false)
-    private String funcao;
 
     @ManyToOne
     @JoinColumn(name = "operacao_id")
     private Operacao operacao;
 
     @ManyToOne
-    @JoinColumn(name = "lider_id")
-    private Lider lider;
-
-    @ManyToOne
     @JoinColumn(name = "colaborador_id")
     private Colaborador colaborador;
 
-    public DiariaRegistrada() {}
+    public RegistroDiariaColaborador (){
+
+    }
 
     public Integer getId() {
         return id;
@@ -54,18 +53,11 @@ public class DiariaRegistrada {
         this.operacao = operacao;
     }
 
-    public Lider getLider() {
-        return lider;
-    }
-
-    public void setLider(Lider lider) {
-        this.lider = lider;
-    }
-
     public Colaborador getColaborador() {
-        return colaborador;
+        return this.colaborador;
     }
 
+    @JsonProperty("colaborador")
     public void setColaborador(Colaborador colaborador) {
         this.colaborador = colaborador;
     }

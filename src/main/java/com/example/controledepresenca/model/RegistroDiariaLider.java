@@ -8,8 +8,8 @@ import java.time.LocalDate;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "diaria")
-public class RegistroDiaria {
+@Table(name = "diariaLider")
+public class RegistroDiariaLider {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,15 +24,11 @@ public class RegistroDiaria {
 
 	@ManyToOne
 	@JoinColumn(name = "lider_id")
-	@JsonProperty("lider")
 	private Lider lider;
 
-	@ManyToOne
-	@JoinColumn(name = "colaborador_id")
-	private Colaborador colaborador;
+	public RegistroDiariaLider() {
 
-	@Enumerated(EnumType.STRING)
-	private StatusDiarias status; // status da presença
+	}
 
 	public Integer getId() {
 		return id;
@@ -46,7 +42,7 @@ public class RegistroDiaria {
 		return data;
 	}
 
-	public void setData(LocalDate dia) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 
@@ -62,24 +58,9 @@ public class RegistroDiaria {
 		return lider;
 	}
 
+	@JsonProperty("lider")
 	public void setLider(Lider lider) {
 		this.lider = lider;
-	}
-
-	public Colaborador getColaborador() {
-		return colaborador;
-	}
-
-	public void setColaborador(Colaborador colaborador) {
-		this.colaborador = colaborador;
-	}
-
-	public StatusDiarias getStatus() {
-		return status;
-	}
-
-	public void setStatus(StatusDiarias status) {
-		this.status = status;
 	}
 
 }
