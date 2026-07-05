@@ -3,8 +3,6 @@ package com.example.controledepresenca.controller;
 import java.util.List;
 
 import com.example.controledepresenca.dto.ColaboradorCadastroDTO;
-import com.example.controledepresenca.dto.LiderCadastroDTO;
-import com.example.controledepresenca.model.Lider;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
