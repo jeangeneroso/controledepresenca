@@ -1,8 +1,8 @@
 package com.example.controledepresenca.model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
-
 import javax.persistence.*;
-
 
 @Entity
 @Table(name = "colaboradores") // nome da tabela no banco
@@ -84,6 +84,8 @@ public class Colaborador {
 		this.operacao = operacao;
 	}
 
+	@OneToMany(mappedBy = "lider")
+	@JsonIgnoreProperties("lider")
 	public List<RegistroDiariaColaborador> getPresencas() {
 		return presencas;
 	}
