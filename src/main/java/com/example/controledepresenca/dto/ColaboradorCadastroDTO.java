@@ -18,7 +18,7 @@ public class ColaboradorCadastroDTO {
     @JsonProperty("cpfColaborador")
     private String cpfColaborador;
 
-    @JsonProperty("chavepixColaborador")
+    @JsonProperty("chavePix")
     private String chavePix;
 
     public ColaboradorCadastroDTO() {}

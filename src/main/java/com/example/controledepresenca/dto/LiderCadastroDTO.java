@@ -18,7 +18,7 @@ public class LiderCadastroDTO {
     @JsonProperty("cpfLider")
     private String cpfLider;
 
-    @JsonProperty("chavePixlider")
+    @JsonProperty("chavePix")
     private String chavePix;
 
     public LiderCadastroDTO (){}

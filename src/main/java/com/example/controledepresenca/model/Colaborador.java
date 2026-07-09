@@ -23,6 +23,7 @@ public class Colaborador {
 
 	@Column(length = 50,nullable = false)
     private String chavePix;
+
  // Relacionamento com Operacao
     @ManyToOne
     @JoinColumn(name = "operacao_id")
