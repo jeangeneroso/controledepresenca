@@ -1,5 +1,6 @@
 package com.example.controledepresenca.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
 import javax.persistence.*;
@@ -30,7 +31,8 @@ public class Colaborador {
     private Operacao operacao;
     
  // Relacionamento com Presenca
-    @OneToMany(mappedBy = "colaborador")
+ 	@OneToMany(mappedBy = "colaborador")
+ 	@JsonIgnoreProperties("colaborador")
     private List<RegistroDiariaColaborador> presencas;
 
     public Colaborador() {
