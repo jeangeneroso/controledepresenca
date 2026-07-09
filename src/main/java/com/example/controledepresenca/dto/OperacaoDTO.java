@@ -1,7 +1,11 @@
 package com.example.controledepresenca.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OperacaoDTO {
 
+    // Alinhado com o getId() e setId() e com o JSON que vem do Front-End
     private Integer id;
     private String nomeOperacaoDTO;
 

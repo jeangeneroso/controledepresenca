@@ -1,14 +1,24 @@
 package com.example.controledepresenca.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LiderCadastroDTO {
 
     @JsonProperty("id")
     private Integer id;
+
+    @JsonProperty("nomeLider")
     private String nomeLider;
+
+    @JsonProperty("rgLider")
     private String rgLider;
+
+    @JsonProperty("cpfLider")
     private String cpfLider;
+
+    @JsonProperty("chavePixlider")
     private String chavePix;
 
     public LiderCadastroDTO (){}

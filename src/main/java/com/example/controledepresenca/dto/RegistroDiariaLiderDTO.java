@@ -1,47 +1,33 @@
 package com.example.controledepresenca.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class RegistroDiariaLiderDTO {
 
+	@JsonProperty("lider")
 	private LiderCadastroDTO lider;
-	private OperacaoDTO operacao;
 
-	private String nomeLider;
+	@JsonProperty("operacao")
+	private OperacaoDTO operacao; // <--- AGORA SIM! Exatamente como no Front-End
+
+	@JsonProperty("data")
+	@JsonFormat(pattern = "yyyy-MM-dd['T'HH:mm:ss.SSS'Z']")
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	private LocalDate data;
 
-	// Construtor Padrão
 	public RegistroDiariaLiderDTO() {}
 
-	public LiderCadastroDTO getLider() {
-		return lider;
-	}
+	public LiderCadastroDTO getLider() { return lider; }
+	public void setLider(LiderCadastroDTO lider) { this.lider = lider; }
 
-	public void setLider(LiderCadastroDTO lider) {
-		this.lider = lider;
-	}
+	public OperacaoDTO getOperacao() { return operacao; }
+	public void setOperacao(OperacaoDTO operacao) { this.operacao = operacao; }
 
-	public OperacaoDTO getOperacao() {
-		return operacao;
-	}
-
-	public void setOperacao(OperacaoDTO operacao) {
-		this.operacao = operacao;
-	}
-
-	public String getNomeLider() {
-		return nomeLider;
-	}
-
-	public void setNomeLider(String nomeLider) {
-		this.nomeLider = nomeLider;
-	}
-
-	public LocalDate getData() {
-		return data;
-	}
-
-	public void setData(LocalDate data) {
-		this.data = data;
-	}
+	public LocalDate getData() { return data; }
+	public void setData(LocalDate data) { this.data = data; }
 }
