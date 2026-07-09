@@ -46,7 +46,7 @@ public class RegistroDiariaService {
 
         RegistroDiariaColaborador presenca = new RegistroDiariaColaborador();
         presenca.setColaborador(colaboradorReal);
-        presenca.setData(LocalDate.now());
+        presenca.setData(dto.getData());
 
         return diariasColaboradorRepository.save(presenca);
     }
@@ -64,7 +64,7 @@ public class RegistroDiariaService {
 
         RegistroDiariaLider presenca = new RegistroDiariaLider();
         presenca.setLider(liderReal);
-        presenca.setData(LocalDate.now());
+        presenca.setData(dto.getData());;
 
         return diariasLiderRepository.save(presenca);
     }
