@@ -1,2 +1,0 @@
-INSERT INTO operacoes (nome_operacao) VALUES ('Operação Padrão');
-INSERT INTO lideres (nome_lider, rg_lider, cpf_lider, chave_pix, operacao_id) VALUES ('Líder Teste', '123456', '12345678900', 'pix@teste.com', 1);

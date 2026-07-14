@@ -12,6 +12,7 @@ import com.example.controledepresenca.model.Lider;
 import com.example.controledepresenca.repository.ColaboradorRepository;
 import com.example.controledepresenca.repository.LiderRepository;
 
+@Service
 public class RegistroExtraService {
 
     private final RegistroExtraLiderRepository extraLiderRepository;
