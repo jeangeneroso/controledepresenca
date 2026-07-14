@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RegistroExtraLiderRepository extends JpaRepository<RegistroExtraLider, Integer> {
 
-    RegistroExtraLider save(RegistroExtraLider  extra);
+    RegistroExtraLider save(RegistroExtraLider extra);
 }
