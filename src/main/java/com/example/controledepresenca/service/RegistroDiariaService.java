@@ -1,7 +1,5 @@
 package com.example.controledepresenca.service;
 
-import java.time.LocalDate;
-
 import com.example.controledepresenca.dto.RegistroDiariaColaboradorDTO;
 import com.example.controledepresenca.dto.RegistroDiariaLiderDTO;
 import com.example.controledepresenca.repository.RegistroDiariaColaboradorRepository;
