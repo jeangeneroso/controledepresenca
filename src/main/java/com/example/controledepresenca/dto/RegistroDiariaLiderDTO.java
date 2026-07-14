@@ -13,7 +13,7 @@ public class RegistroDiariaLiderDTO {
 	private LiderCadastroDTO lider;
 
 	@JsonProperty("operacao")
-	private OperacaoDTO operacao; // <--- AGORA SIM! Exatamente como no Front-End
+	private OperacaoDTO operacao;
 
 	@JsonProperty("data")
 	@JsonFormat(pattern = "yyyy-MM-dd['T'HH:mm:ss.SSS'Z']")
