@@ -26,7 +26,6 @@ public class LiderService {
 	}
 
 	public Lider salvar(LiderCadastroDTO dto) {
-		// TODO Auto-generated method stub
 
 		if (dto.getNomeLider() == null || dto.getNomeLider().trim().isEmpty()) {
 			throw new IllegalArgumentException("Nome do lider é obrigatório");
@@ -47,6 +46,8 @@ public class LiderService {
 		Lider lider = repository.findById(id)
 				.orElseThrow(() -> new RuntimeException(" Lider não cadastrado "));
 		lider.setNomeLider(dadosAtualizados.getNomeLider());
+		lider.setRgLider(dadosAtualizados.getRgLider());
+		lider.setCpfLider(dadosAtualizados.getCpfLider());
 		lider.setChavePix(dadosAtualizados.getChavePix());
 		return repository.save(lider);
 	}

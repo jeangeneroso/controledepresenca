@@ -48,6 +48,8 @@ public class ColaboradorService {
                 .orElseThrow(() -> new RuntimeException("Colaborador não cadastrado"));
 
         colaborador.setNomeColaborador(dadosAtualizados.getNomeColaborador());
+        colaborador.setRgColaborador(dadosAtualizados.getRgColaborador());
+        colaborador.setCpfColaborador(dadosAtualizados.getCpfColaborador());
         colaborador.setChavePix(dadosAtualizados.getChavePix());
         return repository.save(colaborador);
     }
