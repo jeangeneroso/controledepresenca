@@ -1,9 +1,7 @@
 package com.example.controledepresenca.controller;
 
 import java.util.List;
-
 import org.springframework.web.bind.annotation.*;
-
 import com.example.controledepresenca.model.Operacao;
 import com.example.controledepresenca.service.OperacaoService;
 
@@ -21,6 +19,12 @@ public class OperacaoController {
 	public List<Operacao> getTodos() {
 		return operacaoService.listarTodos();
 	}
+
+	@GetMapping("/{id}")
+	public @ResponseBody Operacao getPorId(@PathVariable Integer id) {
+		return operacaoService.listarPorId(id);
+	}
+
 
 	@PostMapping
 	public Operacao criar(@RequestBody Operacao operacao) {

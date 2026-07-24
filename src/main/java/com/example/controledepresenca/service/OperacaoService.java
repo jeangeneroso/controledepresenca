@@ -19,6 +19,11 @@ public class OperacaoService {
 		return repository.findAll();
 	}
 
+	public Operacao listarPorId(Integer id) {
+		return repository.findById(id)
+				.orElseThrow(() -> new RuntimeException(" Operação não cadastrada "));
+	}
+
 	public Operacao salvar(Operacao operacao) {
 		// TODO Auto-generated method stub
 
@@ -34,5 +39,6 @@ public class OperacaoService {
 		repository.delete(operacao);
 
 	}
+
 
 }
