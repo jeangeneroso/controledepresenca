@@ -1,9 +1,11 @@
 package com.example.controledepresenca.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "colaboradores") // nome da tabela no banco
@@ -13,15 +15,27 @@ public class Colaborador {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto incremento
     private Integer id;
 
-	@Column(length = 150, nullable = false)
+	@NotNull
+	@NotBlank
+	@Size(min = 5, max = 100 )
+	@Column(length = 100, nullable = false)
     private String nomeColaborador;
 
+	@NotNull
+	@NotBlank
+	@Size(min = 5, max = 15 )
 	@Column(length = 15,nullable = false)
 	private String rgColaborador;
 
+	@NotNull
+	@NotBlank
+	@Size(min = 5, max = 15 )
 	@Column(length = 15,nullable = false)
 	private String cpfColaborador;
 
+	@NotNull
+	@NotBlank
+	@Size(min = 5, max = 50 )
 	@Column(length = 50,nullable = false)
     private String chavePix;
 

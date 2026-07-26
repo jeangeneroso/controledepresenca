@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "lideres") // nome da tabela no banco
@@ -12,16 +15,28 @@ public class Lider {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto incremento
 	private Integer id;
-    
-    @Column(length = 150, nullable = false)
+
+	@NotNull
+	@NotBlank
+	@Size(min = 5, max = 100 )
+    @Column(length = 100, nullable = false)
 	private String nomeLider;
 
+	@NotNull
+	@NotBlank
+	@Size(min = 5, max = 15 )
 	@Column(length = 15,nullable = false)
 	private String rgLider;
 
+	@NotNull
+	@NotBlank
+	@Size(min = 5, max = 15 )
 	@Column(length = 15,nullable = false)
 	private String cpfLider;
-    
+
+	@NotNull
+	@NotBlank
+	@Size(min = 5, max = 50 )
     @Column(length = 50,nullable = false)
 	private String chavePix;
 	

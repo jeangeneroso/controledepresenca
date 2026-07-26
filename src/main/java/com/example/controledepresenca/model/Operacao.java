@@ -1,6 +1,9 @@
 package com.example.controledepresenca.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "operacoes")
@@ -10,7 +13,10 @@ public class Operacao {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(length = 20,nullable = false)
+	@NotNull
+	@NotBlank
+	@Size(min = 5, max = 30 )
+	@Column(length = 30,nullable = false)
 	private String nomeOperacao;
 
 	public Operacao() {
