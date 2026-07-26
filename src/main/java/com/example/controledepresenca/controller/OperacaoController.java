@@ -11,6 +11,7 @@ import com.example.controledepresenca.service.OperacaoService;
 
 import javax.validation.Valid;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/operacoes")
 public class OperacaoController {

@@ -3,6 +3,7 @@ package com.example.controledepresenca.controller;
 import com.example.controledepresenca.model.Relatorio;
 import com.example.controledepresenca.service.RelatorioService;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/relatorios")
+@CrossOrigin(origins = "*")
 public class RelatorioController {
 
     private final RelatorioService relatorioService;

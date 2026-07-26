@@ -13,6 +13,7 @@ import com.example.controledepresenca.service.ColaboradorService;
 import javax.validation.Valid;
 
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/colaboradores")
 public class ColaboradorController {
