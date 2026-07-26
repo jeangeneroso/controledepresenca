@@ -5,15 +5,19 @@ import java.util.List;
 import com.example.controledepresenca.dto.ColaboradorCadastroDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.controledepresenca.model.Colaborador;
 import com.example.controledepresenca.service.ColaboradorService;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 
 @CrossOrigin(origins = "*")
+@Validated
 @RestController
 @RequestMapping("/colaboradores")
 public class ColaboradorController {
@@ -30,7 +34,7 @@ public class ColaboradorController {
     }
     
     @GetMapping("/{id}")
-    public @ResponseBody Colaborador getPorId(@PathVariable Integer id) {
+    public @ResponseBody Colaborador getPorId(@PathVariable @NotNull @Positive Integer id) {
         return colaboradorService.listarPorId(id);
     }
         
@@ -40,12 +44,12 @@ public class ColaboradorController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Colaborador> atualizar(@PathVariable @Valid Integer id, @RequestBody ColaboradorCadastroDTO dto) {
+    public ResponseEntity<Colaborador> atualizar(@PathVariable @Valid @NotNull @Positive Integer id, @RequestBody ColaboradorCadastroDTO dto) {
         return ResponseEntity.status(HttpStatus.OK).body(colaboradorService.atualizar(id, dto));
     }
     
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> excluir(@PathVariable Integer id) {
+    public ResponseEntity<String> excluir(@PathVariable @NotNull @Positive Integer id) {
         colaboradorService.excluir(id);
         return ResponseEntity.ok(" Colaborador excluído com sucesso! ");
     }

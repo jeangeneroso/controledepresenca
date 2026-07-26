@@ -5,15 +5,19 @@ import java.util.List;
 import com.example.controledepresenca.dto.LiderCadastroDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.controledepresenca.model.Lider;
 import com.example.controledepresenca.service.LiderService;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 @CrossOrigin(origins = "*")
 @RestController
+@Validated
 @RequestMapping("/lideres")
 public class LiderController {
 	
@@ -30,7 +34,7 @@ public class LiderController {
 	}
 	
 	@GetMapping("/{id}")
-	public Lider getPorId (@PathVariable @Valid Integer id) {
+	public Lider getPorId (@PathVariable @Valid @NotNull @Positive Integer id) {
 		return liderService.listarPorId(id);
 	}
 	
@@ -42,13 +46,13 @@ public class LiderController {
 	
 
 	@PutMapping("/{id}")
-	public Lider atualizar (@PathVariable @Valid Integer id, @RequestBody LiderCadastroDTO dto) {
+	public Lider atualizar (@PathVariable @Valid @NotNull @Positive Integer id, @RequestBody LiderCadastroDTO dto) {
 		return liderService.atualizar(id, dto);
 	}
 	
 	
 	@DeleteMapping("/{id}")
-    public void excluir(@PathVariable Integer id) {
+    public void excluir(@PathVariable @NotNull @Positive Integer id) {
         liderService.excluir(id);
     }
 	
