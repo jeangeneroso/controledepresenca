@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.controledepresenca.model.Lider;
 import com.example.controledepresenca.service.LiderService;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/lideres")
 public class LiderController {
@@ -34,7 +36,7 @@ public class LiderController {
 	}
 	
 	@GetMapping("/{id}")
-	public Lider getPorId (@PathVariable Integer id) {
+	public Lider getPorId (@PathVariable @Valid Integer id) {
 		return liderService.listarPorId(id);
 	}
 	
@@ -46,7 +48,7 @@ public class LiderController {
 	
 
 	@PutMapping("/{id}")
-	public Lider atualizar (@PathVariable Integer id, @RequestBody LiderCadastroDTO dto) {
+	public Lider atualizar (@PathVariable @Valid Integer id, @RequestBody LiderCadastroDTO dto) {
 		return liderService.atualizar(id, dto);
 	}
 	

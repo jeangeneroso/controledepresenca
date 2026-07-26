@@ -1,10 +1,12 @@
 package com.example.controledepresenca.service;
 
 import java.util.List;
+
 import com.example.controledepresenca.repository.OperacaoRepository;
 import org.springframework.stereotype.Service;
 
 import com.example.controledepresenca.model.Operacao;
+
 
 @Service
 public class OperacaoService {
@@ -33,12 +35,15 @@ public class OperacaoService {
 		return repository.save(operacao);
 	}
 
+	public Operacao atualizar(Integer id, Operacao operacao) {
+		operacao.setId(id);
+		return repository.save(operacao);
+	}
+
 	public void excluir(Integer id) {
 		Operacao operacao = repository.findById(id)
 				.orElseThrow(() -> new RuntimeException(" Operacao não cadastrada "));
 		repository.delete(operacao);
 
 	}
-
-
 }

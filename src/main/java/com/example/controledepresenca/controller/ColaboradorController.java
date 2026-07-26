@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.controledepresenca.model.Colaborador;
 import com.example.controledepresenca.service.ColaboradorService;
 
+import javax.validation.Valid;
+
 
 @RestController
 @RequestMapping("/colaboradores")
@@ -32,12 +34,12 @@ public class ColaboradorController {
     }
         
     @PostMapping
-    public ResponseEntity<Colaborador> criar(@RequestBody ColaboradorCadastroDTO dto) {
+    public ResponseEntity<Colaborador> criar(@RequestBody @Valid ColaboradorCadastroDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(colaboradorService.salvar(dto));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Colaborador> atualizar(@PathVariable Integer id, @RequestBody ColaboradorCadastroDTO dto) {
+    public ResponseEntity<Colaborador> atualizar(@PathVariable @Valid Integer id, @RequestBody ColaboradorCadastroDTO dto) {
         return ResponseEntity.status(HttpStatus.OK).body(colaboradorService.atualizar(id, dto));
     }
     
