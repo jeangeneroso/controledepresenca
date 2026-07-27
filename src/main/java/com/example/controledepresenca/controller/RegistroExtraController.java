@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/extras")
+@RequestMapping({"/extras", "/api/extras"})
 @CrossOrigin(origins = "https://apicontroledepresenca.jean-generoso.workers.dev")
 public class RegistroExtraController {
 

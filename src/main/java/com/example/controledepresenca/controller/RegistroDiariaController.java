@@ -9,7 +9,7 @@ import com.example.controledepresenca.service.RegistroDiariaService;
 
 
 @RestController
-@RequestMapping("/api/presencas")
+@RequestMapping({"/presencas", "/api/presencas"})
 @CrossOrigin(origins = "https://apicontroledepresenca.jean-generoso.workers.dev")
 public class RegistroDiariaController {
 	

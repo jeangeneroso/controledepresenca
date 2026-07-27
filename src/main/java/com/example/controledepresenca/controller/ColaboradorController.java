@@ -17,9 +17,10 @@ import javax.validation.constraints.Positive;
 
 
 @CrossOrigin(origins = "https://apicontroledepresenca.jean-generoso.workers.dev")
+
 @Validated
 @RestController
-@RequestMapping("/api/colaboradores")
+@RequestMapping({"/colaboradores", "/api/colaboradores"})
 public class ColaboradorController {
 
     private final ColaboradorService colaboradorService;
