@@ -15,7 +15,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
-@CrossOrigin(origins = "https://apicontroledepresenca.jean-generoso.workers.dev")
+@CrossOrigin(origins = "*")
 @RestController
 @Validated
 @RequestMapping({"/lideres", "/api/lideres"})
