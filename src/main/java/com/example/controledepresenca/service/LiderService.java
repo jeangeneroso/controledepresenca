@@ -3,10 +3,13 @@ package com.example.controledepresenca.service;
 import java.util.List;
 
 import com.example.controledepresenca.dto.LiderCadastroDTO;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 import com.example.controledepresenca.model.Lider;
 import com.example.controledepresenca.repository.LiderRepository;
+
+import org.springframework.cache.annotation.Cacheable;
 
 @Service
 public class LiderService {
@@ -17,14 +20,17 @@ public class LiderService {
 		this.repository = repository;
 	}
 
+	@Cacheable("lideres")
 	public List<Lider> listarTodos() {
 		return repository.findAll();
 	}
 
+	@Cacheable(value = "lideres", key = "#id")
 	public Lider listarPorId(Integer id) {
 		return repository.findById(id).orElse(null);
 	}
 
+	@CacheEvict(value = "lideres", allEntries = true)
 	public Lider salvar(LiderCadastroDTO dto) {
 
 		if (dto.getNomeLider() == null || dto.getNomeLider().trim().isEmpty()) {
@@ -40,6 +46,7 @@ public class LiderService {
 		return repository.save(lider);
 	}
 
+	@CacheEvict(value = "...", allEntries = true)
 	public Lider atualizar(Integer id, LiderCadastroDTO dadosAtualizados) {
 		// TODO Auto-generated method stub
 
@@ -52,6 +59,7 @@ public class LiderService {
 		return repository.save(lider);
 	}
 
+	@CacheEvict(value = "lideres", allEntries = true)
 	public void excluir(Integer id) {
 		Lider lider = repository.findById(id).orElseThrow(() -> new RuntimeException(" Lider não cadastrado "));
 		repository.delete(lider);

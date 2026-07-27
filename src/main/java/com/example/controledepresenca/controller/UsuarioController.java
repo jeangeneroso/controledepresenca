@@ -5,11 +5,13 @@ import com.example.controledepresenca.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Optional;
 
+@CrossOrigin(origins = "https://apicontroledepresenca.jean-generoso.workers.dev")
 public class UsuarioController {
 
    @Autowired

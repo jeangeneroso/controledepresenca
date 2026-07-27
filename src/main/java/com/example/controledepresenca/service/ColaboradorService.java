@@ -3,11 +3,14 @@ package com.example.controledepresenca.service;
 import java.util.List;
 
 import com.example.controledepresenca.dto.ColaboradorCadastroDTO;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 import com.example.controledepresenca.exception.ColaboradorNaoEncontradoException;
 import com.example.controledepresenca.model.Colaborador;
 import com.example.controledepresenca.repository.ColaboradorRepository;
+
+import org.springframework.cache.annotation.Cacheable;
 
 @Service
 public class ColaboradorService {
@@ -17,17 +20,19 @@ public class ColaboradorService {
     public ColaboradorService(ColaboradorRepository repository) {
         this.repository = repository;
     }
-    
+
+    @Cacheable("colaboradores")
     public List<Colaborador> listarTodos() {
         return repository.findAll();
     }
-        
-   
+
+    @Cacheable(value = "colaboradores", key = "#id")
     public Colaborador listarPorId(Integer id) {
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException(" Colaborador não cadastrado "));
     }
 
+    @CacheEvict(value = "colaboradores", allEntries = true)
     public Colaborador salvar(ColaboradorCadastroDTO dto) {
         if (dto.getNomeColaborador() == null || dto.getNomeColaborador().trim().isEmpty()) {
             throw new IllegalArgumentException("Nome do colaborador é obrigatório");
@@ -43,6 +48,7 @@ public class ColaboradorService {
         return repository.save(colaborador);
     }
 
+    @CacheEvict(value = "...", allEntries = true)
     public Colaborador atualizar(Integer id, ColaboradorCadastroDTO dadosAtualizados) {
         Colaborador colaborador = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Colaborador não cadastrado"));
@@ -54,6 +60,7 @@ public class ColaboradorService {
         return repository.save(colaborador);
     }
 
+    @CacheEvict(value = "colaboradores", allEntries = true)
     public void excluir(Integer id) {
         Colaborador colaborador = repository.findById(id)
                 .orElseThrow(() -> new ColaboradorNaoEncontradoException(id));

@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/relatorios")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://apicontroledepresenca.jean-generoso.workers.dev")
 public class RelatorioController {
 
     private final RelatorioService relatorioService;

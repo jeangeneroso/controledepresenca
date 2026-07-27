@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/extras")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://apicontroledepresenca.jean-generoso.workers.dev")
 public class RegistroExtraController {
 
     private final RegistroExtraService extraService;

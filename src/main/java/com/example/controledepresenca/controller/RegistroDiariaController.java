@@ -10,7 +10,7 @@ import com.example.controledepresenca.service.RegistroDiariaService;
 
 @RestController
 @RequestMapping("/api/presencas")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://apicontroledepresenca.jean-generoso.workers.dev")
 public class RegistroDiariaController {
 	
 	private final RegistroDiariaService presencaService;

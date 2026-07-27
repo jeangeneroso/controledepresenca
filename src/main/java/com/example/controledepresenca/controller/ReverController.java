@@ -1,5 +1,8 @@
 package com.example.controledepresenca.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+@CrossOrigin(origins = "*")
 public class ReverController {
 	
 	 /*  @GetMapping("/{id}")
