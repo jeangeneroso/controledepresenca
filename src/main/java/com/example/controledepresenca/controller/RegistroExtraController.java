@@ -8,7 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping({"/extras", "/api/extras"})
+/*@RequestMapping({"/extras", "/api/extras"})*/
+@RequestMapping("/extras")
 @CrossOrigin(origins = "*")
 public class RegistroExtraController {
 

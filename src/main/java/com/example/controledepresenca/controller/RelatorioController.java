@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping({"/relatorios", "/api/relatorios"})
+/*@RequestMapping({"/relatorios", "/api/relatorios"})*/
+@RequestMapping("/relatorios")
 @CrossOrigin(origins = "https://apicontroledepresenca.jean-generoso.workers.dev")
 public class RelatorioController {
 

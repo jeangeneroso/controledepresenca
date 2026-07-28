@@ -17,7 +17,7 @@ import javax.validation.constraints.Positive;
 @CrossOrigin(origins = "*")
 @RestController
 @Validated
-@RequestMapping({"/lideres", "/api/operacoes"})
+@RequestMapping("/operacoes")
 public class OperacaoController {
 
 	private final OperacaoService operacaoService;
