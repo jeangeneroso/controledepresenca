@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Optional;
 
-@CrossOrigin(origins = "https://apicontroledepresenca.jean-generoso.workers.dev")
+@CrossOrigin(origins = "*")
 public class UsuarioController {
 
    @Autowired
