@@ -33,4 +33,7 @@ API REST foi desenvolvida para otimizar, gerenciar e automatizar a gestão de di
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/jeangeneroso/controledepresenca (https://github.com/jeangeneroso/controledepresenca.git)
+   git clone (https://github.com/jeangeneroso/controledepresenca.git)
+
+
+Desenvolvido por: Jean Generoso
