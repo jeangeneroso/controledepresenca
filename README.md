@@ -8,7 +8,7 @@ API REST foi desenvolvida para otimizar, gerenciar e automatizar a gestão de di
 
 ## 🔗 Repositório Relacionado
 
-- 🎨 **Interface / Front-end (Angular):** [Acesse o repositório do Front-end aqui](https://github.com/jeangeneroso/controledepresenca)
+- 🎨 **Interface / Front-end (Angular):** [Acesse o repositório do Front-end aqui](https://github.com/jeangeneroso/apicontroledepresenca)
 
 ---
 
