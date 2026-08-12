@@ -4,7 +4,17 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+
 @Table(name = "aprovacoes")
+@org.hibernate.annotations.Table(
+        appliesTo = "aprovacoes",
+        comment = "AUTO_ID_CACHE = 1"
+)
+/*@Table(
+        name = "aprovacoes",
+        options = "AUTO_ID_CACHE = 1" // Força o TiDB a criar esta tabela com ID sequencial
+)*/
+
 public class Aprovacao {
 
     @Id

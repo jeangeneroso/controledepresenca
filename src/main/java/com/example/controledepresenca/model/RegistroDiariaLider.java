@@ -9,6 +9,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "diariaLider")
+@org.hibernate.annotations.Table(
+		appliesTo = "diariaLider",
+		comment = "AUTO_ID_CACHE = 1"// nome da tabela no banco
+)
 public class RegistroDiariaLider {
 
 	@Id

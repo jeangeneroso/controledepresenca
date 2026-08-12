@@ -8,6 +8,10 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "diariaColaborador")
+@org.hibernate.annotations.Table(
+        appliesTo = "diariaColaborador",
+        comment = "AUTO_ID_CACHE = 1"// nome da tabela no banco
+)
 public class RegistroDiariaColaborador {
 
     @Id
