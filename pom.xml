@@ -20,6 +20,8 @@
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <!-- Sobrescreve a versão do driver MySQL do Spring Boot Parent para evitar bugs no TiDB -->
+        <mysql.version>8.0.30</mysql.version>
     </properties>
 
     <dependencies>
