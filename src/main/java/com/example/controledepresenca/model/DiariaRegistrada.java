@@ -11,22 +11,20 @@ public class DiariaRegistrada {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto incremento
     private Integer id;
 
-    private LocalDate data;
-
-    @Column(length = 10,nullable = false)
-    private String funcao;
+    private LocalDate dataDiaria;
 
     @ManyToOne
-    @JoinColumn(name = "operacao_id")
-    private Operacao operacao;
+    @JoinColumn(name = "colaborador_id")
+    private Colaborador colaborador;
 
     @ManyToOne
     @JoinColumn(name = "lider_id")
     private Lider lider;
 
     @ManyToOne
-    @JoinColumn(name = "colaborador_id")
-    private Colaborador colaborador;
+    @JoinColumn(name = "operacao_id")
+    private Operacao operacao;
+
 
     public DiariaRegistrada() {}
 
@@ -39,11 +37,11 @@ public class DiariaRegistrada {
     }
 
     public LocalDate getData() {
-        return data;
+        return dataDiaria;
     }
 
     public void setData(LocalDate data) {
-        this.data = data;
+        this.dataDiaria = data;
     }
 
     public Operacao getOperacao() {
