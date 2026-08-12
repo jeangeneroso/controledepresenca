@@ -10,10 +10,6 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "lideres")
-@org.hibernate.annotations.Table(
-		appliesTo = "lideres",
-		comment = "AUTO_ID_CACHE = 1"// nome da tabela no banco
-)// nome da tabela no banco
 public class Lider {
 	
     @Id
