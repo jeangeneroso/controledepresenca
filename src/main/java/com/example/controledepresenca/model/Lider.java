@@ -36,7 +36,7 @@ public class Lider {
 	@NotNull
 	@NotBlank
 	@Size(min = 5, max = 15 )
-	@Column(length = 15,nullable = false)
+	@Column(length = 15,name = "cpfLider", unique = true, nullable = false)
 	private String cpfLider;
 
 	@NotNull
