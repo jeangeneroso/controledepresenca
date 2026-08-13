@@ -2,16 +2,15 @@ package com.example.controledepresenca.service;
 
 import com.example.controledepresenca.dto.RegistroDiariaColaboradorDTO;
 import com.example.controledepresenca.dto.RegistroDiariaLiderDTO;
+import com.example.controledepresenca.model.*;
 import com.example.controledepresenca.repository.RegistroDiariaColaboradorRepository;
 import org.springframework.stereotype.Service;
 
-import com.example.controledepresenca.model.Colaborador;
-import com.example.controledepresenca.model.Lider;
-import com.example.controledepresenca.model.RegistroDiariaLider;
-import com.example.controledepresenca.model.RegistroDiariaColaborador;
 import com.example.controledepresenca.repository.ColaboradorRepository;
 import com.example.controledepresenca.repository.LiderRepository;
 import com.example.controledepresenca.repository.RegistroDiariaLiderRepository;
+
+import java.util.List;
 
 @Service
 public class RegistroDiariaService {
@@ -46,6 +45,8 @@ public class RegistroDiariaService {
         presenca.setColaborador(colaboradorReal);
         presenca.setData(dto.getData());
 
+        presenca.setStatus(StatusAprovacao.PENDENTE);
+
         return diariasColaboradorRepository.save(presenca);
     }
 
@@ -62,8 +63,28 @@ public class RegistroDiariaService {
 
         RegistroDiariaLider presenca = new RegistroDiariaLider();
         presenca.setLider(liderReal);
-        presenca.setData(dto.getData());;
+        presenca.setData(dto.getData());
+
+        presenca.setStatus(StatusAprovacao.PENDENTE);
 
         return diariasLiderRepository.save(presenca);
+    }
+
+    // =========================================================================
+    // NOVOS MÉTODOS PARA O FLUXO DE APROVAÇÃO (ANGULAR)
+    // =========================================================================
+
+    // Lista todas as diárias de colaboradores pendentes de aprovação
+    public List<RegistroDiariaColaborador> buscarPendentesColaborador() {
+        return diariasColaboradorRepository.findByStatus(StatusAprovacao.PENDENTE);
+    }
+
+    // Altera o status para APROVADO ou REJEITADO
+    public RegistroDiariaColaborador atualizarStatusColaborador(Integer id, StatusAprovacao novoStatus) {
+        RegistroDiariaColaborador presenca = diariasColaboradorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Registro de Diária não encontrado com o ID: " + id));
+
+        presenca.setStatus(novoStatus);
+        return diariasColaboradorRepository.save(presenca);
     }
 }

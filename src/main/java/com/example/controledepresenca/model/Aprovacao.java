@@ -26,9 +26,9 @@ public class Aprovacao {
     private String justificativa;
 
     // O status atual (utilizando o Enum que criamos)
-    @ManyToOne
-    @JoinColumn(name = "status_id")
-    private StatusAprovacao status;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20, nullable = false)
+    private StatusAprovacao status = StatusAprovacao.PENDENTE;
 
     @ManyToOne
     @JoinColumn(name = "registro_diaria_lider")

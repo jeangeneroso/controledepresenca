@@ -35,7 +35,7 @@ public class Colaborador {
 	@NotNull
 	@NotBlank
 	@Size(min = 5, max = 15 )
-	@Column(length = 15,nullable = false)
+	@Column(length = 15,name = "cpfColaborador", unique = true, nullable = false)
 	private String cpfColaborador;
 
 	@NotNull

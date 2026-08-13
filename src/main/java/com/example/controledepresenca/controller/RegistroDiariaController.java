@@ -2,22 +2,25 @@ package com.example.controledepresenca.controller;
 
 import com.example.controledepresenca.dto.RegistroDiariaColaboradorDTO;
 import com.example.controledepresenca.dto.RegistroDiariaLiderDTO;
+import com.example.controledepresenca.model.StatusAprovacao;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.controledepresenca.service.RegistroDiariaService;
+
+import java.util.List;
 
 
 @RestController
 @RequestMapping("/presencas")
 @CrossOrigin(origins = "*")
 public class RegistroDiariaController {
-	
-	private final RegistroDiariaService presencaService;
-	
-	public RegistroDiariaController(RegistroDiariaService presencaService) {
-		this.presencaService = presencaService;
-	}
+
+    private final RegistroDiariaService presencaService;
+
+    public RegistroDiariaController(RegistroDiariaService presencaService) {
+        this.presencaService = presencaService;
+    }
 
     @PostMapping("/colaboradores")
     public ResponseEntity<RegistroDiariaColaboradorDTO> incluirPresencaColaborador(
@@ -37,33 +40,16 @@ public class RegistroDiariaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
-    // Registrar presença de colaborador
-   /* @PostMapping("/colaborador")
-    public RegistroDiariaColaborador incluirPresencaColaborador(
-            @RequestBody RegistroDiariaColaboradorDTO dto) {
-        return presencaService.incluirPresencaColaborador(dto);
+   /* // Listar diárias pendentes (Para a tela de Aprovação)
+    @GetMapping("/pendentes")
+    public List<RegistroDiariaLiderDTO> listarPendentes() {
+        return RegistroDiariaService.buscarPendentes();
+    }
+
+    // Alterar o Status (Aprovar ou Rejeitar)
+    @PatchMapping("/{id}/status")
+    public Diaria alterarStatus(@PathVariable Long id, @RequestParam StatusAprovacao status) {
+        return diariaService.atualizarStatus(id, status);
     }*/
 
-    /*@PostMapping("/lider")
-    public RegistroDiariaLider incluirPresencaLider(@RequestBody RegistroDiariaLiderDTO dto) {
-
-        // --- LINHAS DE TESTE PARA IMPRIMIR NO CONSOLE DO SPRING ---
-        System.out.println("==================================================");
-        if (dto == null) {
-            System.out.println("ERRO: O DTO inteiro chegou NULO!");
-        } else {
-            System.out.println("O DTO chegou. Verificando o objeto 'lider'...");
-            System.out.println("Objeto Lider: " + dto.getLider());
-
-            if (dto.getLider() != null) {
-                System.out.println("ID do Líder recebido: " + dto.getLider().getId());
-            } else {
-                System.out.println("ERRO: O objeto 'lider' dentro do DTO está NULO!");
-            }
-        }
-        System.out.println("==================================================");
-        // ---------------------------------------------------------
-
-        return presencaService.incluirPresencaLider(dto);
-    }*/
 }
