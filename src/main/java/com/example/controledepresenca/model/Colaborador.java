@@ -48,14 +48,14 @@ public class Colaborador {
     @ManyToOne
     @JoinColumn(name = "operacao_id")
     private Operacao operacao;
-    
+
  // Relacionamento com Presenca
  	@OneToMany(mappedBy = "colaborador")
  	@JsonIgnoreProperties("colaborador")
     private List<RegistroDiariaColaborador> presencas;
 
     public Colaborador() {
-    	
+
     }
 
 	public Integer getId() {
@@ -106,8 +106,8 @@ public class Colaborador {
 		this.operacao = operacao;
 	}
 
-	@OneToMany(mappedBy = "lider")
-	@JsonIgnoreProperties("lider")
+	@OneToMany(mappedBy = "colaborador")
+	@JsonIgnoreProperties("colaborador")
 	public List<RegistroDiariaColaborador> getPresencas() {
 		return presencas;
 	}
