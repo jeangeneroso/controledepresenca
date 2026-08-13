@@ -11,9 +11,14 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "lideres")
 public class Lider {
-	
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto incremento
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_lideres")
+	@SequenceGenerator(
+			name = "seq_lideres",
+			sequenceName = "seq_lideres",
+			allocationSize = 1
+	)
 	private Integer id;
 
 	@NotNull

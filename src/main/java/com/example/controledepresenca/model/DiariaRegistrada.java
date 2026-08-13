@@ -8,7 +8,12 @@ import java.time.LocalDate;
 public class DiariaRegistrada {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto incremento
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_diarias_registradas")
+    @SequenceGenerator(
+            name = "seq_diarias_registradas",
+            sequenceName = "seq_diarias_registradas",
+            allocationSize = 1
+    )
     private Integer id;
 
     private LocalDate dataDiaria;

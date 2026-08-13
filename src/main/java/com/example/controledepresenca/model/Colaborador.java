@@ -10,9 +10,14 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "colaboradores")
 public class Colaborador {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto incremento
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_colaboradores")
+	@SequenceGenerator(
+			name = "seq_colaboradores",
+			sequenceName = "seq_colaboradores",
+			allocationSize = 1
+	)
     private Integer id;
 
 	@NotNull

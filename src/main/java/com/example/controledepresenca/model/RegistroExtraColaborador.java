@@ -10,7 +10,12 @@ import java.time.LocalDate;
 public class RegistroExtraColaborador {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_extraColaborador")
+    @SequenceGenerator(
+            name = "seq_extraColaborador",
+            sequenceName = "seq_extraColaborador",
+            allocationSize = 1
+    )
     private Integer id;
 
     @JsonFormat(pattern = "yyyy-MM-dd")

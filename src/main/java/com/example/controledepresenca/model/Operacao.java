@@ -10,7 +10,12 @@ import javax.validation.constraints.Size;
 public class Operacao {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_operacoes")
+	@SequenceGenerator(
+			name = "seq_operacoes",
+			sequenceName = "seq_operacoes",
+			allocationSize = 1
+	)
 	private Integer id;
 
 	@NotNull

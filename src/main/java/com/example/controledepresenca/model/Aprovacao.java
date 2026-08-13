@@ -8,7 +8,12 @@ import java.time.LocalDateTime;
 public class Aprovacao {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_aprovacoes")
+    @SequenceGenerator(
+            name = "seq_aprovacoes",
+            sequenceName = "seq_aprovacoes",
+            allocationSize = 1
+    )
     private Integer id;
 
     // Quem é o usuário que está aprovando/rejeitando

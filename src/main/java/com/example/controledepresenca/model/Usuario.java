@@ -7,7 +7,12 @@ import javax.persistence.*;
 public class Usuario {
 
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_tb_usuarios")
+        @SequenceGenerator(
+                name = "seq_tb_usuarios",
+                sequenceName = "seq_tb_usuarios",
+                allocationSize = 1
+        )
         private Long id;
 
         @Column(nullable = false, unique = true, length = 25)

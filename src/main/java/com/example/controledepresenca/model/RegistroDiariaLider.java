@@ -12,7 +12,12 @@ import javax.persistence.*;
 public class RegistroDiariaLider {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_diariaLider")
+	@SequenceGenerator(
+			name = "seq_diariaLider",
+			sequenceName = "seq_diariaLider",
+			allocationSize = 1
+	)
 	private Integer id;
 
 	@JsonFormat(pattern = "yyyy-MM-dd")

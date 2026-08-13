@@ -10,7 +10,12 @@ import java.time.LocalDate;
 public class Relatorio {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_relatorios")
+	@SequenceGenerator(
+			name = "seq_relatorios",
+			sequenceName = "seq_relatorios",
+			allocationSize = 1
+	)
 	private Integer id;
 
 	@ManyToOne
