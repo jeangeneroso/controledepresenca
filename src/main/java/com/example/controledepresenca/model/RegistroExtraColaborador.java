@@ -80,4 +80,12 @@ public class RegistroExtraColaborador {
         this.quantidadeHoras = quantidadeHoras;
     }
 
+    public StatusAprovacao getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusAprovacao status) {
+        this.status = status;
+    }
+
 }

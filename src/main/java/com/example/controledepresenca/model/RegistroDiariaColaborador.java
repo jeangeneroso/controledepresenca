@@ -70,4 +70,12 @@ public class RegistroDiariaColaborador {
     public void setColaborador(Colaborador colaborador) {
         this.colaborador = colaborador;
     }
+
+    public StatusAprovacao getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusAprovacao status) {
+        this.status = status;
+    }
 }
