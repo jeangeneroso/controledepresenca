@@ -31,12 +31,20 @@ public class Aprovacao {
     private StatusAprovacao status = StatusAprovacao.PENDENTE;
 
     @ManyToOne
+    @JoinColumn(name = "registro_diaria_colaborador")
+    private RegistroDiariaColaborador registroDiariaColaborador;
+
+    @ManyToOne
     @JoinColumn(name = "registro_diaria_lider")
     private RegistroDiariaLider registroDiariaLider;
 
     @ManyToOne
+    @JoinColumn(name = "registro_extra_colaborador")
+    private RegistroDiariaColaborador registroExtraColaborador;
+
+    @ManyToOne
     @JoinColumn(name = "registro_diaria_colaborador")
-    private RegistroDiariaColaborador registroDiariaColaborador;
+    private RegistroDiariaColaborador registroExtraLider;
 
     public Aprovacao() {
     }
@@ -95,5 +103,21 @@ public class Aprovacao {
 
     public void setRegistroDiariaLider(RegistroDiariaLider registroDiariaLider) {
         this.registroDiariaLider = registroDiariaLider;
+    }
+
+    public RegistroDiariaColaborador getRegistroExtraColaborador() {
+        return registroExtraColaborador;
+    }
+
+    public void setRegistroExtraColaborador(RegistroDiariaColaborador registroExtraColaborador) {
+        this.registroExtraColaborador = registroExtraColaborador;
+    }
+
+    public RegistroDiariaColaborador getRegistroExtraLider() {
+        return registroExtraLider;
+    }
+
+    public void setRegistroExtraLider(RegistroDiariaColaborador registroExtraLider) {
+        this.registroExtraLider = registroExtraLider;
     }
 }
