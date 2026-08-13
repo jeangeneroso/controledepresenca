@@ -106,8 +106,6 @@ public class Colaborador {
 		this.operacao = operacao;
 	}
 
-	@OneToMany(mappedBy = "colaborador")
-	@JsonIgnoreProperties("colaborador")
 	public List<RegistroDiariaColaborador> getPresencas() {
 		return presencas;
 	}
