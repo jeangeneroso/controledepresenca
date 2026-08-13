@@ -31,6 +31,10 @@ public class RegistroDiariaLider {
 	@JoinColumn(name = "lider_id")
 	private Lider lider;
 
+	@Enumerated(EnumType.STRING)
+	@Column(length = 20, nullable = false)
+	private StatusAprovacao status = StatusAprovacao.PENDENTE;
+
 	public RegistroDiariaLider() {
 
 	}

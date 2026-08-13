@@ -30,6 +30,10 @@ public class RegistroDiariaColaborador {
     @JoinColumn(name = "colaborador_id")
     private Colaborador colaborador;
 
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20, nullable = false)
+    private StatusAprovacao status = StatusAprovacao.PENDENTE;
+
     public RegistroDiariaColaborador (){
 
     }

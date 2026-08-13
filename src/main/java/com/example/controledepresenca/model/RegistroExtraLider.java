@@ -32,6 +32,14 @@ public class RegistroExtraLider {
     @JoinColumn(name = "hora")
     private Integer quantidadeHoras;
 
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20, nullable = false)
+    private StatusAprovacao status = StatusAprovacao.PENDENTE;
+
+    public RegistroExtraLider () {
+
+    }
+
     public Integer getId() {
         return id;
     }
