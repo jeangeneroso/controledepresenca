@@ -9,12 +9,12 @@ import java.util.List;
 @Repository
 public interface RelatorioRepository extends JpaRepository<Relatorio, Integer> {
 	
-    List<Relatorio> findByColaborador_NomeColaborador(String nome);
+    List<Relatorio> findByColaborador_NomeColaborador(String nomeColaborador);
     
-    List<Relatorio> findByColaborador_CpfColaborador(String cpf);
+    List<Relatorio> findByColaborador_CpfColaborador(String cpfColaborador);
     
-	List<Relatorio> findByLider_NomeLider(String nome);
+	List<Relatorio> findByLider_NomeLider(String nomeLider);
 
-	List<Relatorio> findByLider_cpfLider(String cpf);
+	List<Relatorio> findByLider_cpfLider(String cpfLider);
 }
 
