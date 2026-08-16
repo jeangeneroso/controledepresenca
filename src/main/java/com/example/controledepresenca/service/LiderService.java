@@ -37,6 +37,15 @@ public class LiderService {
 			throw new IllegalArgumentException("Nome do lider é obrigatório");
 
 		}
+
+		if (dto.getId() == null && repository.existsByCpfLider(dto.getCpfLider())) {
+			throw new RuntimeException("Já existe um cadastrado com este CPF: " + dto.getCpfLider());
+		}
+
+		// Validation: CPF duplicado ao atualizar um cadastro existente
+		if (dto.getId() != null && repository.existsByCpfLiderAndIdNot(dto.getCpfLider(), dto.getId())) {
+			throw new RuntimeException("Este CPF já está associado a outro auxiliar.");
+		}
 			Lider lider = new Lider();
 			lider.setNomeLider(dto.getNomeLider());
 			lider.setRgLider(dto.getRgLider());

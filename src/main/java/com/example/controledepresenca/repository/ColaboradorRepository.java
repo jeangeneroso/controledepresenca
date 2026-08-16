@@ -16,8 +16,8 @@ public interface ColaboradorRepository extends JpaRepository<Colaborador, Intege
 	
 	void delete(Colaborador colaborador);
 
-	boolean existsByCpf(String cpf);
+	boolean existsByCpfColaborador(String cpfColaborador);
 
-	boolean existsByCpfAndIdNot(String cpf, Integer id);
+	boolean existsByCpfColaboradorAndIdNot(String cpfColaborador, Integer id);
 
 }

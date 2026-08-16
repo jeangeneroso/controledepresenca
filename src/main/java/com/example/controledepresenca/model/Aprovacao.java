@@ -16,16 +16,12 @@ public class Aprovacao {
     )
     private Integer id;
 
-    // Quem é o usuário que está aprovando/rejeitando
     private String aprovador;
 
-    // A data e hora exata em que o botão foi clicado
     private LocalDateTime dataAprovacao;
 
-    // Um campo para o chefe escrever o motivo caso rejeite a diária
     private String justificativa;
 
-    // O status atual (utilizando o Enum que criamos)
     @Enumerated(EnumType.STRING)
     @Column(length = 20, nullable = false)
     private StatusAprovacao status = StatusAprovacao.PENDENTE;
@@ -43,7 +39,7 @@ public class Aprovacao {
     private RegistroExtraColaborador registroExtraColaborador;
 
     @ManyToOne
-    @JoinColumn(name = "registro_extra_colaborador")
+    @JoinColumn(name = "registro_extra_lider")
     private RegistroDiariaLider registroExtraLider;
 
     public Aprovacao() {

@@ -16,4 +16,8 @@ public interface LiderRepository  extends JpaRepository<Lider, Integer> {
 
 	void delete(Lider lider);
 
+	boolean existsByCpfLider(String cpfLider);
+
+	boolean existsByCpfLiderAndIdNot(String cpfLider, Integer id);
+
 }

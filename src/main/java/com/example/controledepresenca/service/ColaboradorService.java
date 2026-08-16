@@ -38,12 +38,12 @@ public class ColaboradorService {
             throw new IllegalArgumentException("Nome do colaborador é obrigatório");
         }
 
-        if (dto.getId() == null && repository.existsByCpf(dto.getCpfColaborador())) {
+        if (dto.getId() == null && repository.existsByCpfColaborador(dto.getCpfColaborador())) {
             throw new RuntimeException("Já existe um cadastrado com este CPF: " + dto.getCpfColaborador());
         }
 
         // Validation: CPF duplicado ao atualizar um cadastro existente
-        if (dto.getId() != null && repository.existsByCpfAndIdNot(dto.getCpfColaborador(), dto.getId())) {
+        if (dto.getId() != null && repository.existsByCpfColaboradorAndIdNot(dto.getCpfColaborador(), dto.getId())) {
             throw new RuntimeException("Este CPF já está associado a outro auxiliar.");
         }
 
