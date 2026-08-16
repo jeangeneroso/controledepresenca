@@ -1,10 +1,13 @@
 package com.example.controledepresenca.service;
 
-
+import com.example.controledepresenca.dto.RelatorioDTO;
 import com.example.controledepresenca.model.Relatorio;
 import com.example.controledepresenca.repository.RelatorioRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 @Service
 public class RelatorioService {
@@ -19,43 +22,42 @@ public class RelatorioService {
         return repository.findAll();
     }
 
-    public List<Relatorio> buscarPorNomeColaborador(String nome) {
-    	if(nome == null) {
-    		throw new IllegalArgumentException("Nome do Colaborador é obrigatório");
+    public List<Relatorio> buscarPorNomeColaborador(RelatorioDTO dto) {
+    	if(dto.getColaborador()== null || dto.getColaborador().getNomeColaborador() == null ) {
+    		throw new IllegalArgumentException(" Nome do Colaborador é obrigatório para consulta ");
     	}
     	
-        return repository.findByColaborador_NomeColaborador(nome);
+        return repository.findByColaborador_NomeColaborador(dto.getColaborador().getNomeColaborador());
     }
-    
-    
-    public List<Relatorio> buscarPorNomeLider(String nome) {
-    	if(nome == null) {
-    		throw new IllegalArgumentException("Nome do Lider é obrigatório");
+
+    public List<Relatorio> buscarPorNomeLider(RelatorioDTO dto) {
+    	if(dto.getLider() == null || dto.getLider().getNomeLider() == null) {
+
+    		throw new IllegalArgumentException(" Nome do Lider é obrigatório ");
     	}
-        return repository.findByLider_NomeLider(nome);
+
+        return repository.findByLider_NomeLider(dto.getLider().getNomeLider());
     }
 
-    public List<Relatorio> buscarPorCpfColaborador(String cpf) {
-        return repository.findByColaborador_CpfColaborador(cpf);
-    }
-    
-    public List<Relatorio> buscarPorCpfLider(String cpf) {
-        return repository.findByLider_cpfLider(cpf);
-    }
+    public List<Relatorio> buscarPorCpfColaborador(RelatorioDTO dto) {
+        if (dto.getColaborador() == null || dto.getColaborador().getCpfColaborador() == null) {
 
-    // Filtrar por operação
-    /*public List<Relatorio> buscarPorOperacao(String nomeOperacao) {
-        return relatorioRepository.findByOperacao_Nome(nomeOperacao);
-    }*/
-    
-   /* public List<Relatorio> buscarRelatorios(String nome, String cpf) {
-        if (nome != null && !nome.isEmpty()) {
-            return repository.findByColaborador_NomeColaborador(nome);
-        } else if (cpf != null && !cpf.isEmpty()) {
-            return repository.findByColaborador_CpfColaborador(cpf);
-        } else {
-            return repository.findAll();
+            throw new IllegalArgumentException(" CPF do Colaborador é obrigatório ");
         }
-    }*/
+
+        return repository.findByColaborador_CpfColaborador(dto.getColaborador().getCpfColaborador());
+
+    }
+    
+    public List<Relatorio> buscarPorCpfLider(RelatorioDTO dto) {
+        if (dto.getLider() == null || dto.getLider().getCpfLider() == null) {
+
+            throw new IllegalArgumentException(" CPF do Lider é obrigatório ");
+
+        }
+        return repository.findByLider_cpfLider(dto.getLider().getCpfLider());
+    }
+
+
 
 }
