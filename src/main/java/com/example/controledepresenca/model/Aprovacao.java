@@ -40,11 +40,11 @@ public class Aprovacao {
 
     @ManyToOne
     @JoinColumn(name = "registro_extra_colaborador")
-    private RegistroDiariaColaborador registroExtraColaborador;
+    private RegistroExtraColaborador registroExtraColaborador;
 
     @ManyToOne
-    @JoinColumn(name = "registro_diaria_colaborador")
-    private RegistroDiariaColaborador registroExtraLider;
+    @JoinColumn(name = "registro_extra_colaborador")
+    private RegistroDiariaLider registroExtraLider;
 
     public Aprovacao() {
     }
@@ -105,19 +105,19 @@ public class Aprovacao {
         this.registroDiariaLider = registroDiariaLider;
     }
 
-    public RegistroDiariaColaborador getRegistroExtraColaborador() {
+    public RegistroExtraColaborador getRegistroExtraColaborador() {
         return registroExtraColaborador;
     }
 
-    public void setRegistroExtraColaborador(RegistroDiariaColaborador registroExtraColaborador) {
+    public void setRegistroExtraColaborador(RegistroExtraColaborador registroExtraColaborador) {
         this.registroExtraColaborador = registroExtraColaborador;
     }
 
-    public RegistroDiariaColaborador getRegistroExtraLider() {
+    public RegistroDiariaLider getRegistroExtraLider() {
         return registroExtraLider;
     }
 
-    public void setRegistroExtraLider(RegistroDiariaColaborador registroExtraLider) {
+    public void setRegistroExtraLider(RegistroDiariaLider registroExtraLider) {
         this.registroExtraLider = registroExtraLider;
     }
 }
