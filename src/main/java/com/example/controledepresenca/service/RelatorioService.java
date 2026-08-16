@@ -1,13 +1,11 @@
 package com.example.controledepresenca.service;
 
 import com.example.controledepresenca.dto.RelatorioDTO;
+import com.example.controledepresenca.dto.RelatorioFiltroDTO;
 import com.example.controledepresenca.model.Relatorio;
 import com.example.controledepresenca.repository.RelatorioRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 
 @Service
 public class RelatorioService {
@@ -58,6 +56,11 @@ public class RelatorioService {
         return repository.findByLider_cpfLider(dto.getLider().getCpfLider());
     }
 
+    public List<RelatorioFiltroDTO> buscarPorData(String data) {
+        if (data == null || data.trim().isEmpty()) {
+            throw new IllegalArgumentException("A data é obrigatória para a consulta.");
+        }
 
-
+        return repository.findByData(data);
+    }
 }

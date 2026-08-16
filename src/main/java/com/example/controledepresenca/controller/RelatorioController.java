@@ -1,7 +1,7 @@
 package com.example.controledepresenca.controller;
 
 import com.example.controledepresenca.dto.RelatorioDTO;
-
+import com.example.controledepresenca.dto.RelatorioFiltroDTO;
 import com.example.controledepresenca.model.Relatorio;
 import com.example.controledepresenca.service.RelatorioService;
 
@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-/*@RequestMapping({"/relatorios", "/api/relatorios"})*/
 @RequestMapping("/relatorios")
-@CrossOrigin(origins = "https://apicontroledepresenca.jean-generoso.workers.dev")
+@CrossOrigin(origins = "*")
 public class RelatorioController {
 
     private final RelatorioService relatorioService;
@@ -44,6 +43,11 @@ public class RelatorioController {
     @GetMapping("/cpf_lider")
     public List <Relatorio> getPorCpfLider(RelatorioDTO dto) {
         return relatorioService.buscarPorCpfLider(dto);
+    }
+
+    @GetMapping("/data")
+    public List<RelatorioFiltroDTO> getPorData(@RequestParam("data") String data) {
+        return relatorioService.buscarPorData(data);
     }
 
        
