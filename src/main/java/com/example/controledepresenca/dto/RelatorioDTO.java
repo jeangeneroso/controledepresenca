@@ -15,13 +15,13 @@ public class RelatorioDTO {
     @JsonProperty("id")
     private Integer id;
 
-    @JsonProperty("nomeColaborador")
+    @JsonProperty("colaborador")
     private Colaborador colaborador;
 
-    @JsonProperty("nomeLider")
+    @JsonProperty("lider")
     private Lider lider;
 
-    @JsonProperty("nomeOperacao")
+    @JsonProperty("operacao")
     private Operacao operacao;
 
     public Integer getId() {
@@ -55,4 +55,5 @@ public class RelatorioDTO {
     public void setOperacao(Operacao operacao) {
         this.operacao = operacao;
     }
+
 }
