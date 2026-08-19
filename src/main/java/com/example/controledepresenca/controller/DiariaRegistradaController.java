@@ -1,38 +1,40 @@
 package com.example.controledepresenca.controller;
 
+
+import com.example.controledepresenca.model.Colaborador;
+import com.example.controledepresenca.model.DiariaRegistrada;
+import com.example.controledepresenca.service.DiariaRegistradaService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import java.util.List;
+
+@CrossOrigin(origins = "*")
+@Validated
+@RestController
+@RequestMapping("/diarias")
 public class DiariaRegistradaController {
-	
-	/* @GetMapping
-    public List<Presenca> getTodos() {
-        return presencaService.listarTodos();
-    }*/
-  
-// Listar todas as presenças
-/*    @GetMapping
-public List<RegistroDiariaDTO> getTodos() {
-    return presencaService.listarTodos()
-            .stream()
-            .map(RegistroDiariaDTO::new) // transforma entidade em DTO
-            .collect(Collectors.toList());
-}*/
 
-// Listar presenças de um colaborador específico
-/*    @GetMapping("/colaborador/{colaboradorId}")
-public List<RegistroDiariaDTO> getPresencasPorColaborador(@PathVariable Integer colaboradorId) {
-    return presencaService.listarPorColaborador(colaboradorId)
-            .stream()
-            .map(RegistroDiariaDTO::new)
-            .collect(Collectors.toList());
-}*/
+    private final DiariaRegistradaService diariaRegistradaService;
 
-// Listar presenças de um líder específico
-/*    @GetMapping("/lider/{liderId}")
-public List<RegistroDiariaDTO> getPresencasPorLider(@PathVariable Integer liderId) {
-    return presencaService.listarPorLider(liderId)
-            .stream()
-            .map(RegistroDiariaDTO::new)
-            .collect(Collectors.toList());
-}*/
+    public DiariaRegistradaController (DiariaRegistradaService diariaRegistradaService){
+        this.diariaRegistradaService = diariaRegistradaService;
+    }
+
+    @GetMapping
+    public @ResponseBody List<DiariaRegistrada> getTodos() {
+        return diariaRegistradaService.listarTodos();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> excluir(@PathVariable @NotNull @Positive Integer id) {
+        diariaRegistradaService.excluir(id);
+        return ResponseEntity.ok(" Diaria excluida com sucesso! ");
+    }
+
 
 
 }

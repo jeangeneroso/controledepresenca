@@ -30,6 +30,9 @@ public class DiariaRegistrada {
     @JoinColumn(name = "operacao_id")
     private Operacao operacao;
 
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20, nullable = false)
+    private StatusAprovacao status = StatusAprovacao.APROVADO;
 
     public DiariaRegistrada() {}
 
@@ -41,20 +44,20 @@ public class DiariaRegistrada {
         this.id = id;
     }
 
-    public LocalDate getData() {
+    public LocalDate getDataDiaria() {
         return dataDiaria;
     }
 
-    public void setData(LocalDate data) {
-        this.dataDiaria = data;
+    public void setDataDiaria(LocalDate dataDiaria) {
+        this.dataDiaria = dataDiaria;
     }
 
-    public Operacao getOperacao() {
-        return operacao;
+    public Colaborador getColaborador() {
+        return colaborador;
     }
 
-    public void setOperacao(Operacao operacao) {
-        this.operacao = operacao;
+    public void setColaborador(Colaborador colaborador) {
+        this.colaborador = colaborador;
     }
 
     public Lider getLider() {
@@ -65,11 +68,19 @@ public class DiariaRegistrada {
         this.lider = lider;
     }
 
-    public Colaborador getColaborador() {
-        return colaborador;
+    public Operacao getOperacao() {
+        return operacao;
     }
 
-    public void setColaborador(Colaborador colaborador) {
-        this.colaborador = colaborador;
+    public void setOperacao(Operacao operacao) {
+        this.operacao = operacao;
+    }
+
+    public StatusAprovacao getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusAprovacao status) {
+        this.status = status;
     }
 }
