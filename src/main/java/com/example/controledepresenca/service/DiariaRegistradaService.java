@@ -18,9 +18,10 @@ public class DiariaRegistradaService {
         this.repository = repository;
     }
 
-    @Cacheable("diarias")
+    @Cacheable(value = "diarias", unless = "#result == null || #result.isEmpty()")
     public List<DiariaRegistrada> listarTodos() {
-        return null;
+        List<DiariaRegistrada> lista = repository.findAll();
+        return lista != null ? lista : List.of();
     }
 
     @CacheEvict(value = "diarias", allEntries = true)
