@@ -6,14 +6,14 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "extraLider")
+@Table(name = "extra_lider")
 public class RegistroExtraLider {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_extraLider")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_extra_lider")
     @SequenceGenerator(
-            name = "seq_extraLider",
-            sequenceName = "seq_extraLider",
+            name = "seq_extra_lider",
+            sequenceName = "seq_extra_lider",
             allocationSize = 1
     )
     private Integer id;

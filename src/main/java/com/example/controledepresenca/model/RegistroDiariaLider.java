@@ -8,14 +8,14 @@ import java.time.LocalDate;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "diariaLider")
+@Table(name = "diaria_lider")
 public class RegistroDiariaLider {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_diariaLider")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_diaria_lider")
 	@SequenceGenerator(
-			name = "seq_diariaLider",
-			sequenceName = "seq_diariaLider",
+			name = "seq_diaria_lider",
+			sequenceName = "seq_diaria_lider",
 			allocationSize = 1
 	)
 	private Integer id;
