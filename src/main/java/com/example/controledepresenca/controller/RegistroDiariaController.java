@@ -22,7 +22,7 @@ public class RegistroDiariaController {
         this.presencaService = presencaService;
     }
 
-    @PostMapping("/colaboradores")
+    @PostMapping("/colaborador")
     public ResponseEntity<RegistroDiariaColaboradorDTO> incluirPresencaColaborador(
             @RequestBody RegistroDiariaColaboradorDTO dto) {
 
@@ -31,7 +31,7 @@ public class RegistroDiariaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
-    @PostMapping("/lideres")
+    @PostMapping("/lider")
     public ResponseEntity<RegistroDiariaLiderDTO> incluirPresencaLider(
             @RequestBody RegistroDiariaLiderDTO dto) {
 
